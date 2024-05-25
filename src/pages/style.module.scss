@@ -1,0 +1,126 @@
+$accent-color: #b4b4b4;
+.main {
+	background-color: #171717;
+	width: 100dvw;
+	height: 100dvh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: OverpassMono, monospace;
+}
+.layout {
+	position: absolute;
+	inset-inline-start: 50%;
+	inset-block-start: 50%;
+	translate: -50% -50%;
+	width: 90%;
+	height: 90%;
+	background-image: url('@images/bg.webp');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	filter: blur(2px);
+	border-radius: 25px;
+	z-index: 0;
+}
+$bottom-padding: 20px;
+.content {
+	padding: 40px 30px $bottom-padding 40px;
+	border: 3px dashed $accent-color;
+	z-index: 10;
+}
+$button-width: 150px;
+$button-height: 30px;
+.button {
+	position: relative;
+	inset-inline-start: calc(50% - $button-width * 0.5);
+	inset-block-start: calc($bottom-padding + $button-height * 0.5);
+	min-width: $button-width;
+	min-height: $button-height;
+	background: #b4b4b4;
+	border: 1px solid black;
+	box-shadow: 0 0 0 2px $accent-color;
+	color: black;
+	font-weight: 900;
+	cursor: pointer;
+	&:active {
+		border: 2px solid black;
+	}
+}
+.helloText {
+	position: relative;
+	color: #ccc;
+	font-size: 60px;
+	font-weight: 700;
+	animation: glitch 5s step-end infinite;
+	&:after, &:before {
+		position: absolute;
+		content: 'Hello World!';
+		width: 110%;
+		z-index: -5;
+		animation: glitch 5s step-end infinite, opacity 5s step-end infinite;
+	}
+	&:before {
+		inset-inline-start: -5px;
+		inset-block-start: -5px;
+		color: #8d2828;
+		animation: movement 10s step-end infinite;
+	}
+	&:after {
+		inset-block-start: -10px;
+		inset-inline-start: 0px;
+		color: #479fab;
+		animation: movement 8s step-end infinite;;
+	}
+}
+
+@keyframes glitch {
+	0% { clip-path: polygon(0% 17%,41% 17%,41% 4%,14% 4%,14% 18%,10% 18%,10% 8%,19% 8%,19% 89%,7% 89%,7% 19%,86% 19%,86% 40%,47% 40%,47% 29%,46% 29%,46% 2%,75% 2%,75% 10%,88% 10%,88% 27%,58% 27%,58% 48%,92% 48%,92% 91%,11% 91%,11% 12%,40% 12%,40% 57%,17% 57%,17% 52%,0% 52%,0% 96%,16% 96%,16% 5%,72% 5%,72% 11%,69% 11%,69% 18%,12% 18%,12% 61%,81% 61%,81% 64%); }
+	5% { clip-path: polygon(0% 91%,61% 91%,61% 68%,77% 68%,77% 19%,0% 19%,0% 3%,86% 3%,86% 35%,50% 35%,50% 35%,28% 35%,28% 39%,30% 39%,30% 95%,90% 95%); }
+	30% { clip-path: polygon(0% 50%,55% 50%,55% 25%,78% 25%,78% 45%,70% 45%,70% 57%,4% 57%) }
+	50% { clip-path: polygon(0% 53%,82% 53%,82% 40%,20% 40%,20% 67%,60% 67%,60% 76%,34% 76%,34% 44%,15% 44%,15% 29%,52% 29%,52% 48%,5% 48%,5% 91%,63% 91%,63% 6%,51% 6%,51% 87%,15% 87%,15% 57%) }
+	75% { clip-path: polygon(0% 41%,56% 41%,56% 27%,30% 27%,30% 14%,78% 14%,78% 66%,56% 66%,56% 21%,65% 21%,65% 60%,1% 60%,1% 69%,18% 69%,18% 51%,55% 51%,55% 37%,65% 37%,65% 31%,43% 31%,43% 15%,88% 15%,88% 35%,21% 35%,21% 22%,82% 22%,82% 61%,37% 61%,37% 76%,30% 76%,30% 36%,59% 36%,59% 12%,37% 12%,37% 73%,4% 73%,4% 26%,5% 26%,5% 89%,1% 89%,1% 80%,30% 80%,30% 51%,29% 51%,29% 73%,16% 73%,16% 47%,71% 47%,71% 12%,13% 12%) }
+	90% { clip-path: polygon(0% 2%,80% 2%,80% 96%,60% 96%,60% 45%,15% 45%,15% 3%,60% 3%,60% 14%,0% 14%,0% 93%,55% 93%,55% 3%,70% 3%,70% 89%,30% 89%,30% 36%,47% 36%,47% 6%,89% 6%,89% 95%,65% 95%,65% 35%,74% 35%,74% 37%,18% 37%,18% 65%,45% 65%,45% 49%,61% 49%,61% 20%,33% 20%,33% 25%,48% 25%,48% 14%,87% 14%,87% 38%,44% 38%,44% 14%) }
+	1%, 6%, 32%, 52%, 77%, 93% { clip-path: none }
+}
+
+@keyframes movement {
+	0% {
+		top: 0px;
+		left: -10px;
+	}
+	15% {
+		top: 5px;
+		left: 5px;
+	}
+	60% {
+		top: 3px;
+		left: -5px;
+	}
+	75% {
+		top: -3px;
+		left: 10px;
+	}
+	100% {
+		top: 5px;
+		left: 3px;
+	}
+}
+
+@keyframes opacity {
+	0% { opacity: 0.1; }
+	5% { opacity: 0.7; }
+	30% { opacity: 0.4; }
+	50% { opacity: 0.6; }
+	75% { opacity: 0.4; }
+	90% { opacity: 0.8; }
+	1%, 6%, 32%, 52%, 77%, 93% { opacity: 0 }
+}
+
+@keyframes blur {
+	0% { filter: blur(3px); }
+	20% { filter: blur(0); }
+	50% { filter: blur(2px); }
+	60% { filter: blur(0); }
+	90% { filter: blur(6px); }
+}
