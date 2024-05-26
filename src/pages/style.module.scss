@@ -1,32 +1,33 @@
 $accent-color: #b4b4b4;
 $bg-color: #171717;
+
 .main {
-	background-color: $bg-color;
-	width: 100dvw;
-	height: 100dvh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-family: OverpassMono, monospace;
+	width: 100dvw;
+	height: 100dvh;
+	font-family: "OverpassMono", monospace;
+	background-color: $bg-color;
 }
+
 .layout {
 	position: absolute;
-	inset-inline-start: 50%;
 	inset-block-start: 50%;
-	translate: -50% -50%;
+	inset-inline-start: 50%;
+	z-index: 0;
 	width: 90%;
 	height: 90%;
 	background-image: url('@images/bg.webp');
 	background-repeat: no-repeat;
-	background-size: cover;
 	background-position: center;
-	filter: blur(2px);
+	background-size: cover;
 	border-radius: 25px;
-	z-index: 0;
+	filter: blur(2px);
+	translate: -50% -50%;
 }
-$bottom-padding: 20px;
 .content {
-	padding: 40px 30px $bottom-padding 40px;
-	border: 3px dashed $accent-color;
+	height: 100%;
+	width: 100%;
 	z-index: 10;
 }

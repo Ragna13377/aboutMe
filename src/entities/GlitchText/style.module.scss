@@ -1,26 +1,29 @@
 .glitchText {
-	font-family: OverpassMono, monospace;
 	position: relative;
-	color: #ccc;
-	font-size: 60px;
+	color: #cccccc;
 	font-weight: 700;
+	font-size: 60px;
+	font-family: "OverpassMono", monospace;
 	animation: glitch 5s step-end infinite;
 	user-select: none;
-	&:after, &:before {
+
+	&::after, &::before {
 		position: absolute;
-		content: attr(data-text);
-		width: 110%;
 		z-index: -5;
+		width: 110%;
 		animation: glitch 5s step-end infinite, opacity 5s step-end infinite;
+		content: attr(data-text);
 	}
-	&:before {
-		inset-inline-start: 5px;
+
+	&::before {
 		inset-block-start: 5px;
+		inset-inline-start: 5px;
 		color: #8d2828;
 		animation: movement 10s step-end infinite;
 	}
-	&:after {
-		inset-block-start: 0px;
+
+	&::after {
+		inset-block-start: 0;
 		inset-inline-start: -5px;
 		color: #479fab;
 		animation: movement 8s step-end infinite;
@@ -39,20 +42,24 @@
 
 @keyframes movement {
 	0% {
-		top: 0px;
+		top: 0;
 		left: -7px;
 	}
+
 	15% {
 		top: 5px;
 		left: 5px;
 	}
+
 	60% {
 		top: -5px;
 		left: -3px;	}
+
 	75% {
 		top: -3px;
 		left: 7px;
 	}
+
 	100% {
 		top: 5px;
 		left: -3px;

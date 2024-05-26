@@ -1,0 +1,1 @@
+export type TSocialsType = 'telegram' | 'github' | 'gmail';

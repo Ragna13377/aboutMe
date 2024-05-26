@@ -1,15 +1,19 @@
-import Button from '@entities/Button';
-import GlitchText from '@entities/GlitchText';
+import { useState } from 'react';
+import SocialsList from 'src/features/SocialsList';
+import WelcomeContent from '@widgets/WelcomeContent';
 import styles from './style.module.scss';
 
-const Home = () => (
-	<main className={styles.main}>
-		<div className={styles.layout} />
-		<div className={styles.content}>
-			<GlitchText>Hello World!</GlitchText>
-			<Button>Log in</Button>
-		</div>
-	</main>
-);
+const Home = () => {
+	const [appState, setAppState] = useState(false);
+	return (
+		<main className={styles.main}>
+			<div className={styles.layout} />
+			<div className={styles.content}>
+				<WelcomeContent onClick={() => setAppState(true)} />
+				<SocialsList />
+			</div>
+		</main>
+	);
+};
 
 export default Home;

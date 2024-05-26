@@ -1,0 +1,19 @@
+.socials {
+	min-width: 40px;
+	aspect-ratio: 1/1;
+}
+
+.telegram, .gmail, .github {
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.telegram {
+	background-image: url('./images/telegram.webp');
+}
+.gmail {
+  background-image: url('./images/email.webp');
+}
+.github {
+	background-image: url('./images/github.webp');
+}
