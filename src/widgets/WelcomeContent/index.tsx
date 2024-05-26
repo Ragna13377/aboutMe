@@ -1,7 +1,7 @@
 import React from 'react';
 import GlitchText from '@entities/GlitchText';
 import Button from '@entities/Button';
-import styles from '@pages/style.module.scss';
+import styles from './style.module.scss';
 
 export type WelcomeContentProps = {
 	onClick?: () => void;

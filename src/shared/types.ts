@@ -1,1 +1,3 @@
-export type TSocialsType = 'telegram' | 'github' | 'gmail';
+import { technologyImages } from '@entities/Technology/constants';
+
+export type TechnologyType = keyof typeof technologyImages;
