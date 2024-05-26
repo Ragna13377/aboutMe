@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { socials, stack } from '@pages/constants';
+import ConsoleTable from '@widgets/ConsoleTable';
 import TechnologyList from '@features/TechnologyList';
 import WelcomeContent from '@widgets/WelcomeContent';
 import styles from './style.module.scss';
@@ -12,10 +13,12 @@ const Home = () => {
 			<div className={styles.content}>
 				<WelcomeContent onClick={() => setAppState(true)} />
 				<TechnologyList
+					title='Навыки'
 					orientation='vertical'
 					listType='stack'
 					technologies={stack}
 				/>
+				<ConsoleTable info='текст'/>
 				<TechnologyList
 					orientation='horizontal'
 					listType='socials'
