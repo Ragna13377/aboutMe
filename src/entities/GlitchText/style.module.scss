@@ -1,12 +1,14 @@
 .glitchText {
+	font-family: OverpassMono, monospace;
 	position: relative;
 	color: #ccc;
 	font-size: 60px;
 	font-weight: 700;
 	animation: glitch 5s step-end infinite;
+	user-select: none;
 	&:after, &:before {
 		position: absolute;
-		content: 'Hello World!';
+		content: attr(data-text);
 		width: 110%;
 		z-index: -5;
 		animation: glitch 5s step-end infinite, opacity 5s step-end infinite;
@@ -73,9 +75,4 @@
 	50% { filter: blur(2px); }
 	60% { filter: blur(0); }
 	90% { filter: blur(6px); }
-}
-@keyframes flickering {
-	0%   { opacity:1; }
-	50%  { opacity:0; }
-	100% { opacity:1; }
 }

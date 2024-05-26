@@ -1,8 +1,10 @@
-import React, { PropsWithChildren } from 'react';
-import styles from '@pages/style.module.scss';
+import { PropsWithChildren } from 'react';
+import styles from './style.module.scss';
 
 const GlitchText = ({ children }: PropsWithChildren) => (
-	<p className={styles.glitchText}>{children}</p>
+	<p className={styles.glitchText} data-text={children}>
+		{children}
+	</p>
 );
 
 export default GlitchText;
