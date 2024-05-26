@@ -1,14 +1,21 @@
 import { clsx } from 'clsx';
-import Technology, { TechnologyProps } from '@entities/Technology';
+import { TTechnology } from '@shared/types';
+import Technology from '@entities/Technology';
 import styles from './style.module.scss';
 
+export type TGridPart = 'stack' | 'socials';
 export type TechnologyListProps = {
-	technologies: TechnologyProps[];
+	technologies: TTechnology[];
 	orientation: 'horizontal' | 'vertical';
+	listType: TGridPart
 };
 
-const TechnologyList = ({ technologies, orientation }: TechnologyListProps) => (
-	<ul className={clsx(styles.technologyList, styles[`${orientation}Orientation`])}>
+const TechnologyList = ({ technologies, orientation, listType }: TechnologyListProps) => (
+	<ul className={clsx(
+		styles.technologyList,
+		styles[`${orientation}Orientation`],
+		styles[`${listType}List`]
+	)}>
 		{technologies.map((technology) => (
 			<Technology key={technology.type} {...technology} />
 		))}

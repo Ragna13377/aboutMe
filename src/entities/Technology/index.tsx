@@ -1,24 +1,29 @@
 import { clsx } from 'clsx';
-import { TechnologyType } from '@shared/types';
+import { TTechnology } from '@shared/types';
 import { technologyImages } from '@entities/Technology/constants';
 import { setFirstLetterUpperCase } from '@shared/utils';
 import styles from './style.module.scss';
 
-export type TechnologyProps = {
-	type: TechnologyType;
-	href?: string;
-};
-const Technology = ({ type, href }: TechnologyProps) => (
+const Technology = ({ type, href }: TTechnology) => (
 	<li className={styles.technology}>
-		<a
-			className={clsx(styles.technologyItem, { [styles.technologyLink]: href })}
-			href={href}
-			target={'_blank'}
-			rel='noreferrer'
-		>
-			<img src={technologyImages[type]} alt={`${type} link`} />
-			{!href && setFirstLetterUpperCase(type)}
-		</a>
+		{
+			href ? (
+				<a
+					className={clsx(styles.technologyItem, styles.technologyLink)}
+					href={href}
+					target={'_blank'}
+					rel='noreferrer'
+				>
+					<img src={technologyImages[type]} alt={`${type} link`} />
+				</a>
+			)
+				: (
+					<div className={styles.technologyItem}>
+						<img src={technologyImages[type]} alt={`${type} technology`} />
+						{setFirstLetterUpperCase(type)}
+					</div>
+				)
+		}
 	</li>
 );
 

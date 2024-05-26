@@ -1,24 +1,25 @@
 .technologyList {
-	justify-self: end;
-	align-self: end;
 	padding: 20px;
-	grid-area: socials;
 	display: flex;
-	gap: 15px;
+}
+.stackList {
+	grid-area: stack;
+	gap: 10px;
 	color: var(--console-text);
-}
-
-.horizontalOrientation {
-	flex-direction: row;
-}
-
-.verticalOrientation {
 	background-color: var(--console-color);
-	flex-direction: column;
 	border: 2px solid var(--console-text);
 	outline: 3px solid var(--console-color);;
 	box-shadow: 1px 1px 1px var(--accent-color);
-
+}
+.socialsList {
+	grid-area: socials;
+	justify-content: space-evenly;
+}
+.horizontalOrientation {
+	flex-direction: row;
+}
+.verticalOrientation {
+	flex-direction: column;
 }
 
 @keyframes appearance {

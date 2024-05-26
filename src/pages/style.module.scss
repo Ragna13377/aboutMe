@@ -28,12 +28,12 @@ $bg-color: #171717;
 .content {
 	padding: 2.5% 5%;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-rows: 2fr 2fr 1fr;
 	grid-template-areas:
-			'education additional'
-			'experience about'
-			'skills socials';
+			'stack . .'
+			'. . .'
+			'. . socials';
 	height: 100%;
 	width: 100%;
 	z-index: 10;

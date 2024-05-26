@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { socials, stack } from '@pages/constants';
 import TechnologyList from '@features/TechnologyList';
 import WelcomeContent from '@widgets/WelcomeContent';
-import { email, github, telegram } from '@shared/constants';
 import styles from './style.module.scss';
 
 const Home = () => {
@@ -13,28 +13,14 @@ const Home = () => {
 				<WelcomeContent onClick={() => setAppState(true)} />
 				<TechnologyList
 					orientation='vertical'
-					technologies={[
-						{ type: 'react' },
-						{ type: 'redux' },
-						{ type: 'typescript' },
-						{ type: 'javascript' },
-						{ type: 'jest' },
-						{ type: 'cypress' },
-						{ type: 'storybook' },
-						{ type: 'webpack' },
-						{ type: 'docker' },
-						{ type: 'kubernetes' },
-						{ type: 'git' },
-						{ type: 'styled-components' },
-					]}
+					listType='stack'
+					technologies={stack}
 				/>
-				{/*<TechnologyList*/}
-				{/*	technologies={[*/}
-				{/*		{ type: 'gmail', href: email },*/}
-				{/*		{ type: 'github', href: github },*/}
-				{/*		{ type: 'telegram', href: telegram },*/}
-				{/*	]}*/}
-				{/*/>*/}
+				<TechnologyList
+					orientation='horizontal'
+					listType='socials'
+					technologies={socials}
+				/>
 			</div>
 		</main>
 	);
