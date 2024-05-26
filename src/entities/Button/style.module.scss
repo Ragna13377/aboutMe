@@ -1,12 +1,9 @@
 $button-width: 150px;
 $button-height: 40px;
-$button-color: #1C1C1CFF;
-$button-color-text: green;
-$bottom-padding: 20px;
 
 .button {
 	position: relative;
-	inset-block-start: calc($bottom-padding + $button-height * 0.5);
+	inset-block-start: calc(20px + $button-height * 0.5);
 	inset-inline-start: calc(100% - $button-width);
 	z-index: 1;
 	display: flex;
@@ -16,9 +13,9 @@ $bottom-padding: 20px;
 	min-height: $button-height;
 	padding: 0 15px;
 	overflow: hidden;
-	color: $button-color-text;
+	color: var(--console-text);
 	font-weight: 900;
-	background-color: $button-color;
+	background-color: var(--console-color);
 	border: none;
 	cursor: pointer;
 	clip-path: polygon(50% 0%, 100% 0, 100% 100%, 10% 100%, 0 70%, 0 0);
@@ -31,7 +28,7 @@ $bottom-padding: 20px;
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: $button-color-text;
+		background: var(--console-text);
 		translate: 98% 0;
 		transition: translate 0s linear;
 	}

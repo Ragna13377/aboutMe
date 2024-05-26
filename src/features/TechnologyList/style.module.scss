@@ -1,0 +1,31 @@
+.technologyList {
+	justify-self: end;
+	align-self: end;
+	padding: 20px;
+	grid-area: socials;
+	display: flex;
+	gap: 15px;
+	color: var(--console-text);
+}
+
+.horizontalOrientation {
+	flex-direction: row;
+}
+
+.verticalOrientation {
+	background-color: var(--console-color);
+	flex-direction: column;
+	border: 2px solid var(--console-text);
+	outline: 3px solid var(--console-color);;
+	box-shadow: 1px 1px 1px var(--accent-color);
+
+}
+
+@keyframes appearance {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
