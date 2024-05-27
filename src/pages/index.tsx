@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { socials, stack } from '@pages/constants';
-import ConsoleTable from '@widgets/ConsoleTable';
+import { experience, socials, stack } from '@pages/constants';
+import ConsoleWindow from '@widgets/ConsoleWindow';
 import TechnologyList from '@features/TechnologyList';
 import WelcomeContent from '@widgets/WelcomeContent';
 import styles from './style.module.scss';
@@ -18,7 +18,7 @@ const Home = () => {
 					listType='stack'
 					technologies={stack}
 				/>
-				<ConsoleTable info='текст'/>
+				<ConsoleWindow textBlock={experience} processName='Education Process' />
 				<TechnologyList
 					orientation='horizontal'
 					listType='socials'
