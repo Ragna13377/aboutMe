@@ -1,21 +1,13 @@
 import { clsx } from 'clsx';
-import { TTechnology } from '@shared/types';
+import { TechnologyListProps } from '@features/TechnologyList/types';
 import Technology from '@entities/Technology';
 import styles from './style.module.scss';
-
-export type TGridPart = 'stack' | 'socials';
-export type TechnologyListProps = {
-	technologies: TTechnology[];
-	orientation: 'horizontal' | 'vertical';
-	listType: TGridPart;
-	title?: string;
-};
 
 const TechnologyList = ({
 	technologies,
 	orientation,
 	listType,
-	                        title
+	title
 }: TechnologyListProps) => (
 	<ul
 		className={clsx(

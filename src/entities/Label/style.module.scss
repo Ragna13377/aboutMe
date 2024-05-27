@@ -1,0 +1,25 @@
+$label-offset-x: 15px;
+$label-offset-y: 15px;
+.labelContainer {
+	position: absolute;
+	inset-inline-end: calc((100% - var(--layout-height)) / 2 + $label-offset-x);
+	inset-block-start: calc((100% - var(--layout-height)) / 2 + $label-offset-y);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	padding: 5px;
+}
+.labelImage {
+	width: 40px;
+	aspect-ratio: 1/1;
+}
+.labelDescription {
+	color: white;
+	font-weight: 500;
+	font-size: 14px;
+}
+.focused {
+	background-color: rgba(79, 104, 157, 0.4);
+}

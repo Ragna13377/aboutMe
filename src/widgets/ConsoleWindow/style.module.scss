@@ -48,7 +48,7 @@ $panel-height: 25px;
 .button {
 	width: 15px;
 	padding: 0;
-	background-color: transparent;
+	background-color: rgba(255, 255, 255, 0);
 	border: none;
 	aspect-ratio: 1/1;
 	&:focus {
@@ -137,7 +137,7 @@ $panel-height: 25px;
 .textBlock {
 	margin: 0;
 	white-space: break-spaces;
-
+	letter-spacing: -0.5px;
 	&::after {
 		content: '▋';
 		animation: flickering 0.8s infinite;

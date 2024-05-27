@@ -40,7 +40,6 @@ $button-height: 40px;
 			animation: flickering 0.8s infinite;
 		}
 	}
-
 	&:active {
 		&::before {
 			mix-blend-mode: soft-light;
@@ -48,11 +47,6 @@ $button-height: 40px;
 			translate: 0 0;
 		}
 	}
-
-	&:focus {
-		outline: none;
-	}
-
 	&:focus-visible {
 		outline: 5px solid black;
 	}
