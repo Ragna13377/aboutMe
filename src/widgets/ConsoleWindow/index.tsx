@@ -1,39 +1,34 @@
 import { clsx } from 'clsx';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useRef, useState } from 'react';
+import { useCustomDrag } from '@widgets/ConsoleWindow/hooks';
+import { ConsoleWindowProps } from '@widgets/ConsoleWindow/types';
 import styles from './style.module.scss';
 
-export type ConsoleTextBlock = {
-	date: string;
-	title: string;
-	description: string;
-};
-export type ConsoleWindowProps = {
-	processName?: string;
-	textBlock?: ConsoleTextBlock[];
-};
-const ConsoleWindow = ({ processName, textBlock }: ConsoleWindowProps) => {
+const ConsoleWindow = ({ position, processName, onClose, textBlock }: ConsoleWindowProps) => {
 	const [isMinimized, setIsMinimized] = useState(false);
-	const [isShow, setIsShow] = useState(true);
+	const consoleRef = useRef<HTMLDivElement>(null);
+	const panelRef = useRef<HTMLDivElement>(null);
+	useCustomDrag({ ref: panelRef, position });
 	return (
-		<div
+		<article ref={consoleRef}
+    style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
 			className={clsx(styles.container, {
 				[styles.minimized]: isMinimized,
-				[styles.showed]: isShow,
 			})}
 		>
-			<div className={styles.panel}>
-				{processName}
-				<div className={styles.tools}>
+			<div className={styles.panel} ref={panelRef}>
+				<h2 className={styles.panelTitle}>{processName}</h2>
+				<div className={styles.panelTools}>
 					<button
-						onClick={() => setIsMinimized(false)}
+						onClick={() => setIsMinimized(true)}
 						className={clsx(styles.button, styles.hideButton)}
 					/>
 					<button
-						onClick={() => setIsMinimized(true)}
+						onClick={() => setIsMinimized(false)}
 						className={clsx(styles.button, styles.showButton)}
 					/>
 					<button
-						onClick={() => setIsShow(false)}
+						onClick={onClose}
 						className={clsx(styles.button, styles.closeButton)}
 					/>
 				</div>
@@ -60,7 +55,7 @@ const ConsoleWindow = ({ processName, textBlock }: ConsoleWindowProps) => {
 					</pre>
 				)}
 			</div>
-		</div>
+		</article>
 	);
 };
 

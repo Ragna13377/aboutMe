@@ -1,6 +1,6 @@
 @import '@shared/styles/animations';
 
-$button-hover: 393939;
+$button-hover: #393939;
 $button-active: #676767;
 $close-button-hover: #7b0000;
 $close-button-active: #570000;
@@ -11,7 +11,6 @@ $panel-height: 25px;
 	inset-block-start: 100px;
 	inset-inline-start: calc(50% - 350px);
 	width: 700px;
-	min-width: 300px;
 	height: 350px;
 	color: var(--console-text);
 	font-weight: 700;
@@ -26,16 +25,24 @@ $panel-height: 25px;
 	align-items: center;
 	height: $panel-height;
 	padding: 0 10px;
-	font-size: 15px;
+
 	letter-spacing: -1px;
 	background-color: var(--console-color);
 	border-block-end: 2px solid var(--console-text);
 	user-select: none;
 }
+.panelTitle {
+	margin: 0;
+	font-size: 15px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
-.tools {
+.panelTools {
 	display: flex;
 	gap: 10px;
+	margin-inline-start: 20px;
 }
 
 .button {
@@ -44,19 +51,16 @@ $panel-height: 25px;
 	background-color: transparent;
 	border: none;
 	aspect-ratio: 1/1;
-
-	&:hover, &:focus-visible {
-		background-color: $button-hover;
-		outline: 2px solid $button-hover;
-	}
-
-	&:active {
-		background-color: $button-active;
-		outline: 2px solid $button-active;
-	}
-
 	&:focus {
 		outline: none;
+	}
+	&:hover, &:focus-visible {
+		background-color: $button-hover;
+		outline: 3px solid $button-hover;
+	}
+	&:active {
+		background-color: $button-active;
+		outline: 3px solid $button-active;
 	}
 }
 
@@ -74,9 +78,9 @@ $panel-height: 25px;
 	&::after, &::before {
 		content: '';
 		position: absolute;
-		translate: -55% -55%;
+		translate: -55% -60%;
 		inset: 50%;
-		width: 100%;
+		width: 120%;
 		height: 2px;
 		background-color: var(--accent-color);
 	}
@@ -152,11 +156,14 @@ $panel-height: 25px;
 }
 
 .minimized {
-	width: 100px;
-	height: 25px;
-}
-
-.showed {
-
+	width: 200px;
+	height: $panel-height + 4px;
+	overflow: hidden;
+	.panel {
+		border: none;
+	}
+	.content{
+		display: none;
+	}
 }
 

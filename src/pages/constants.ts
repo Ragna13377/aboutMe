@@ -1,6 +1,6 @@
 import { TTechnology } from '@shared/types';
 import { email, github, telegram } from '@shared/constants';
-import { ConsoleTextBlock } from '@widgets/ConsoleWindow';
+import { ConsoleTextBlock } from '@widgets/ConsoleWindow/types';
 
 export const stack: TTechnology[] = [
 	{ type: 'react' },

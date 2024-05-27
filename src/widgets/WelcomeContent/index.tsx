@@ -9,7 +9,7 @@ export type WelcomeContentProps = {
 const WelcomeContent = ({ onClick }: WelcomeContentProps) => (
 	<div className={styles.welcomeContent}>
 		<GlitchText>Hello World!</GlitchText>
-		<Button onClick={onClick}>Log in</Button>
+		<Button onClick={onClick}>Open</Button>
 	</div>
 );
 
