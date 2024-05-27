@@ -25,16 +25,17 @@ $bg-color: #171717;
 	filter: blur(2px);
 	translate: -50% -50%;
 }
+
 .content {
-	padding: 2.5% 5%;
+	z-index: 10;
 	display: grid;
-	grid-template-columns: 1fr 3fr 1fr;
 	grid-template-rows: 2fr 2fr 1fr;
+	grid-template-columns: 1fr 3fr 1fr;
 	grid-template-areas:
 			'stack . .'
 			'. . .'
 			'. . socials';
-	height: 100%;
 	width: 100%;
-	z-index: 10;
+	height: 100%;
+	padding: 2.5% 5%;
 }

@@ -1,3 +1,5 @@
+@import '@shared/styles/animations';
+
 $button-width: 150px;
 $button-height: 40px;
 
@@ -14,8 +16,8 @@ $button-height: 40px;
 	padding: 0 15px;
 	overflow: hidden;
 	color: var(--console-text);
-	background-color: var(--console-color);
 	font-weight: 900;
+	background-color: var(--console-color);
 	border: none;
 	cursor: pointer;
 	clip-path: polygon(50% 0%, 100% 0, 100% 100%, 10% 100%, 0 70%, 0 0);
@@ -54,10 +56,4 @@ $button-height: 40px;
 	&:focus-visible {
 		outline: 5px solid black;
 	}
-}
-
-@keyframes flickering {
-	0%   { opacity:1; }
-	50%  { opacity:0; }
-	100% { opacity:1; }
 }

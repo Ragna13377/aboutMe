@@ -1,8 +1,9 @@
 .technologyList {
-	list-style-type: none;
-	padding: 20px;
 	display: flex;
+	padding: 20px;
+	list-style-type: none;
 }
+
 .stackList {
 	grid-area: stack;
 	gap: 10px;
@@ -11,29 +12,23 @@
 	border: 2px solid var(--console-text);
 	outline: 3px solid var(--console-color);
 }
+
 .socialsList {
 	grid-area: socials;
 	justify-content: space-evenly;
 }
+
 .horizontalOrientation {
 	flex-direction: row;
 }
+
 .verticalOrientation {
 	flex-direction: column;
 }
 
 .title {
-	text-align: start;
-	font-size: 20px;
 	font-weight: 900;
+	font-size: 20px;
+	text-align: start;
 	border-block-end: 2px solid var(--console-text);
-}
-
-@keyframes appearance {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
 }
