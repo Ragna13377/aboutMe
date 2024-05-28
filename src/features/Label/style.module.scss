@@ -19,9 +19,22 @@ $label-offset-y: 15px;
 	aspect-ratio: 1/1;
 }
 .labelDescription {
+	max-width: 80px;
+	cursor: default;
 	color: white;
+	border: none;
+	background-color: rgba(255, 255, 255, 0);
 	font-weight: 500;
 	font-size: 14px;
+	text-align: center;
+	padding: 2px;
+	&:focus {
+		cursor: text;
+		color: black;
+		border: 1px solid black;
+		background-color: white;
+		outline: none;
+	}
 }
 .focused {
 	background-color: rgba(79, 104, 157, 0.4);

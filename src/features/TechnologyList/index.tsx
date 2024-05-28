@@ -2,12 +2,13 @@ import { clsx } from 'clsx';
 import { TechnologyListProps } from '@features/TechnologyList/types';
 import Technology from '@entities/Technology';
 import styles from './style.module.scss';
+import { memo } from 'react';
 
 const TechnologyList = ({
 	technologies,
 	orientation,
 	listType,
-	title
+	title,
 }: TechnologyListProps) => (
 	<ul
 		className={clsx(
@@ -23,4 +24,4 @@ const TechnologyList = ({
 	</ul>
 );
 
-export default TechnologyList;
+export default memo(TechnologyList);

@@ -2,7 +2,6 @@ import { TTechnology } from '@shared/types';
 import { email, github, telegram } from '@shared/constants';
 import { ConsoleTextBlock } from '@widgets/ConsoleWindow/types';
 
-export const initialPosition = { x: 0, y: 0 };
 export const stack: TTechnology[] = [
 	{ type: 'react' },
 	{ type: 'redux' },

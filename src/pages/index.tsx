@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { experience, socials, stack } from '@pages/constants';
 import { useUpdatePosition } from '@pages/hooks/useUpdatePosition';
 import ConsoleWindow from '@widgets/ConsoleWindow';
-import Label from '@entities/Label';
+import Label from '@features/Label';
 import TechnologyList from '@features/TechnologyList';
 import WelcomeContent from '@widgets/WelcomeContent';
 import { useCustomDrop } from '@pages/hooks/useCustomDrop';
@@ -21,7 +21,7 @@ const Home = () => {
 		<main className={styles.main}>
 			<div className={styles.layout} />
 			<div className={styles.content} ref={areaRef}>
-				<WelcomeContent onClick={() => {}} />
+				<WelcomeContent />
 				<TechnologyList
 					title='Навыки'
 					orientation='vertical'
@@ -36,7 +36,7 @@ const Home = () => {
 				<Label
 					image={docx}
 					description='Резюме'
-					onDoubleClick={() => setIsConsoleShown(true)}
+					handleOpen={() => setIsConsoleShown(true)}
 					position={position.label}
 				/>
 				{isConsoleShown && (

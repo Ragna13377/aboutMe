@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import GlitchText from '@entities/GlitchText';
 import Button from '@entities/Button';
 import styles from './style.module.scss';
@@ -13,4 +13,4 @@ const WelcomeContent = ({ onClick }: WelcomeContentProps) => (
 	</div>
 );
 
-export default WelcomeContent;
+export default memo(WelcomeContent);

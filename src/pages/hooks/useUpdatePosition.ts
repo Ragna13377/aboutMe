@@ -1,6 +1,6 @@
 import { Reducer, useReducer } from 'react';
 import { UpdatePositionAction, UpdatePositionState } from '@pages/types';
-import { initialPosition } from '@pages/constants';
+import { emptyPosition } from '@shared/constants';
 
 export const updatePositionReducer: Reducer<
 	UpdatePositionState,
@@ -53,6 +53,6 @@ export const useUpdatePosition = () => {
 	return { state, dispatch };
 };
 export const initialStateUpdatePosition: UpdatePositionState = {
-	console: { ...initialPosition, currentPosition: { ...initialPosition } },
-	label: { ...initialPosition, currentPosition: { ...initialPosition } },
+	console: { ...emptyPosition, currentPosition: { ...emptyPosition } },
+	label: { ...emptyPosition, currentPosition: { ...emptyPosition } },
 };
