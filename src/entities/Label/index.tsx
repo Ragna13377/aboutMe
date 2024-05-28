@@ -10,32 +10,30 @@ export type LabelProps = {
 	description: string;
 	onDoubleClick: () => void;
 	position: XYCoord;
-}
+};
 const Label = ({ image, description, onDoubleClick, position }: LabelProps) => {
 	const [isFocus, setIsFocus] = useState(false);
 	const labelRef = useRef<HTMLButtonElement>(null);
-	const { preview } = useCustomDrag({type: 'label', ref: labelRef});
+	const { isDrag } = useCustomDrag({ type: 'label', ref: labelRef });
 	useEffect(() => {
 		const removeFocus = (e: MouseEvent) => {
-			if (labelRef.current && !labelRef.current.contains(e.target as Node)) setIsFocus(false)
-		}
-		if(isFocus) document.addEventListener('click', removeFocus)
-		return () => document.removeEventListener('click', removeFocus)
+			if (labelRef.current && !labelRef.current.contains(e.target as Node))
+				setIsFocus(false);
+		};
+		if (isFocus) document.addEventListener('click', removeFocus);
+		return () => document.removeEventListener('click', removeFocus);
 	}, [isFocus]);
 	return (
-		<>
-			<DragPreviewImage connect={preview} src={stub} />
-			<button
-				style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
-				className={clsx(styles.labelContainer, { [styles.focused]: isFocus })}
-				onClick={() => setIsFocus(true)}
-				onDoubleClick={onDoubleClick}
-				ref={labelRef}
-			>
-				<img className={styles.labelImage} src={image} alt="label" />
-				<p className={styles.labelDescription}>{description}</p>
-			</button>
-		</>
+		<button onContextMenu={(e) => e.preventDefault()}
+			style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
+			className={clsx(styles.labelContainer, { [styles.focused]: isFocus })}
+			onClick={() => setIsFocus(true)}
+			onDoubleClick={onDoubleClick}
+			ref={labelRef}
+		>
+			<img className={styles.labelImage} src={image} alt='label' />
+			<p className={styles.labelDescription}>{description}</p>
+		</button>
 	);
 };
 

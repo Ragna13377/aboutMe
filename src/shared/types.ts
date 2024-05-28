@@ -12,4 +12,4 @@ export type TTechnology = {
 export type CustomDragProps = {
 	type: dropTypes;
 	ref: RefObject<HTMLElement>;
-}
+};

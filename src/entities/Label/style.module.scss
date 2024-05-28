@@ -10,6 +10,9 @@ $label-offset-y: 15px;
 	justify-content: center;
 	gap: 5px;
 	padding: 5px;
+	&:hover {
+		background-color: rgba(148, 153, 164, 0.4);
+	}
 }
 .labelImage {
 	width: 40px;
@@ -22,4 +25,7 @@ $label-offset-y: 15px;
 }
 .focused {
 	background-color: rgba(79, 104, 157, 0.4);
+	&:hover {
+		background-color: rgba(79, 104, 157, 0.4);
+	}
 }

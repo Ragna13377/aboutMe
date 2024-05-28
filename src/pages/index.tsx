@@ -1,19 +1,22 @@
-import { useReducer, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { experience, socials, stack } from '@pages/constants';
-import { initialStateUpdatePosition, updatePosition, UpdatePositionAction } from '@pages/reducer';
+import { useUpdatePosition } from '@pages/hooks/useUpdatePosition';
 import ConsoleWindow from '@widgets/ConsoleWindow';
 import Label from '@entities/Label';
 import TechnologyList from '@features/TechnologyList';
 import WelcomeContent from '@widgets/WelcomeContent';
-import { useCustomDrop } from '@pages/hooks';
-import docx from './images/docx.svg'
+import { useCustomDrop } from '@pages/hooks/useCustomDrop';
+import docx from './images/docx.svg';
 import styles from './style.module.scss';
 
 const Home = () => {
 	const [isConsoleShown, setIsConsoleShown] = useState(true);
-	const [positionState, dispatch] = useReducer(updatePosition, initialStateUpdatePosition);
+	const { state: position, dispatch: setPosition } = useUpdatePosition();
 	const areaRef = useRef<HTMLDivElement>(null);
-	useCustomDrop({ref: areaRef, positionState, positionDispatch: dispatch});
+	useCustomDrop({
+		ref: areaRef,
+		setPosition,
+	});
 	return (
 		<main className={styles.main}>
 			<div className={styles.layout} />
@@ -34,16 +37,16 @@ const Home = () => {
 					image={docx}
 					description='Резюме'
 					onDoubleClick={() => setIsConsoleShown(true)}
-					position={positionState.label}
+					position={position.label}
 				/>
-				{isConsoleShown &&
+				{isConsoleShown && (
 					<ConsoleWindow
 						textBlock={experience}
 						processName='Work Progress'
-						position={positionState.console}
+						position={position.console}
 						onClose={() => setIsConsoleShown(false)}
 					/>
-				}
+				)}
 			</div>
 		</main>
 	);
