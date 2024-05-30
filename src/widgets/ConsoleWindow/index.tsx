@@ -1,7 +1,9 @@
 import { clsx } from 'clsx';
-import React, { Fragment, useEffect, useRef, useState } from 'react';
-import { useCustomDrag } from '@shared/hooks/useCustomDrag';
+import React, { useEffect, useRef, useState } from 'react';
 import { ConsoleWindowProps } from '@widgets/ConsoleWindow/types';
+import { useCustomDrag } from '@shared/hooks/useCustomDrag';
+import { formatText } from '@widgets/ConsoleWindow/utils';
+import TypeWriter from '@entities/TypeWriter';
 import styles from './style.module.scss';
 
 const ConsoleWindow = ({
@@ -44,24 +46,11 @@ const ConsoleWindow = ({
 			</div>
 			<div className={styles.content}>
 				{textBlock && (
-					<pre className={styles.textBlock}>
-						{textBlock
-							.map(
-								({ date, title, description }) =>
-									`${date}\t${title}\n${description}\n`
-							)
-							.join('\n')}
-						{textBlock.map(({ date, title, description }, index) => (
-							<Fragment key={index}>
-								<div className={styles.textHeader}>
-									<span className={styles.textDate}>{date}</span>
-									<span className={styles.textTitle}>{title}</span>
-								</div>
-								<p className={styles.textDescription}>{description}</p>
-								<p className={styles.textDivider} />
-							</Fragment>
-						))}
-					</pre>
+					<TypeWriter
+						text={formatText(textBlock, 70)}
+						speed={300}
+						delay={1500}
+					/>
 				)}
 			</div>
 		</article>

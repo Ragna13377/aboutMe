@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
-import { experience, socials, stack } from '@pages/constants';
+import { socials, stack } from '@pages/constants';
+import { experience } from '@widgets/ConsoleWindow/constants';
 import { useUpdatePosition } from '@pages/hooks/useUpdatePosition';
 import ConsoleWindow from '@widgets/ConsoleWindow';
 import Label from '@features/Label';
