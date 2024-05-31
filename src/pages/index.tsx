@@ -1,16 +1,18 @@
 import { useRef, useState } from 'react';
-import { socials, stack } from '@pages/constants';
+import { aboutMe } from '@shared/constants';
+import { errorsText, socials, stack } from '@pages/constants';
 import { experience } from '@widgets/ConsoleWindow/constants';
+import { useCustomDrop } from '@pages/hooks/useCustomDrop';
 import { useUpdatePosition } from '@pages/hooks/useUpdatePosition';
+import TextContainer from '@entities/TextContainer';
 import ConsoleWindow from '@widgets/ConsoleWindow';
+import ErrorBox from '@widgets/ErrorBox';
+import { formatText } from '@widgets/ConsoleWindow/utils';
 import Label from '@widgets/Label';
 import TechnologyList from '@widgets/TechnologyList';
 import WelcomeContent from '@widgets/WelcomeContent';
-import { useCustomDrop } from '@pages/hooks/useCustomDrop';
 import docx from './images/docx.svg';
 import styles from './style.module.scss';
-import { aboutMe } from '@shared/constants';
-import TextContainer from '@entities/TextContainer';
 
 const Home = () => {
 	const [isConsoleShown, setIsConsoleShown] = useState(true);
@@ -32,6 +34,13 @@ const Home = () => {
 						technologies={stack}
 					/>
 				</TextContainer>
+				{errorsText.map((error) => (
+					<ErrorBox text={error} onClose={() => {}} />
+				))}
+
+				{/*<TextContainer title='О себе'>*/}
+				{/*	{formatText(aboutMe)}*/}
+				{/*</TextContainer>*/}
 				<TechnologyList
 					orientation='horizontal'
 					listType='socials'

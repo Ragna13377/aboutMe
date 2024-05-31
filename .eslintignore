@@ -7,3 +7,4 @@ dist
 webpack/*.js
 package*.json
 *.d.ts
+!.storybook
