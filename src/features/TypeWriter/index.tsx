@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from '@widgets/ConsoleWindow/style.module.scss';
+import { TypeWriterProps } from '@features/TypeWriter/types';
 
-export type TypeWriterProps = {
-	text: string[];
-	speed: number;
-	delay: number;
-};
 const TypeWriter = ({ text, speed, delay }: TypeWriterProps) => {
 	const [currentText, setCurrentText] = useState('Loading...');
 	const [currentIndex, setCurrentIndex] = useState(-1);

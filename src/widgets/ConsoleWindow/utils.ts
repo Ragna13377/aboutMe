@@ -1,6 +1,12 @@
-import { ConsoleTextBlock } from '@widgets/ConsoleWindow/types';
+import {
+	ConsoleTextBlock,
+	TSplitRangeLine,
+} from '@widgets/ConsoleWindow/types';
 
-export const formatText = (data: ConsoleTextBlock[], maxLineLength?: number) =>
+export const formatText = (
+	data: ConsoleTextBlock[],
+	maxLineLength?: TSplitRangeLine
+) =>
 	data.reduce((acc: string[], { date, title, description }) => {
 		if (!maxLineLength) acc.push(`\n${date}\t${title}\n${description}`);
 		else {

@@ -1,19 +1,26 @@
 import path from "path";
 import { Configuration } from 'webpack'
-import HTMLWebpackPlugins from "html-webpack-plugin";
+import HTMLWebpackPlugin from "html-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {ProjectMode, WebpackPaths} from "../types/types";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import CopyPlugin from 'copy-webpack-plugin';
 
 export function getPlugins(mode: ProjectMode, paths: WebpackPaths): Configuration['plugins'] {
   const isProd = mode === "prod"
   const basePlugins: Configuration['plugins'] = [
-    new HTMLWebpackPlugins({
+    new HTMLWebpackPlugin({
       template: path.resolve(__dirname, '../..', paths.html),
     }),
     new CleanWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [{
+        from: path.resolve(__dirname, '../../', paths.src, 'shared/files'),
+        to: path.resolve(__dirname, '../..', paths.output, 'files'),
+      }]
+    }),
     new MiniCssExtractPlugin({
       filename: isProd
         ? 'static/styles/[name].[contenthash].css'

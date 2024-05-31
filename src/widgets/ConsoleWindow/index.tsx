@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ConsoleWindowProps } from '@widgets/ConsoleWindow/types';
 import { useCustomDrag } from '@shared/hooks/useCustomDrag';
 import { formatText } from '@widgets/ConsoleWindow/utils';
-import TypeWriter from '@entities/TypeWriter';
+import TypeWriter from '@features/TypeWriter';
 import styles from './style.module.scss';
 
 const ConsoleWindow = ({

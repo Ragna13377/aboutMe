@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import { TechnologyListProps } from '@features/TechnologyList/types';
+import { TechnologyListProps } from '@widgets/TechnologyList/types';
 import Technology from '@entities/Technology';
 import styles from './style.module.scss';
 import { memo } from 'react';
