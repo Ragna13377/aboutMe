@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { aboutMe } from '@shared/constants';
 import { errorsText, socials, stack } from '@pages/constants';
 import { experience } from '@widgets/ConsoleWindow/constants';
+import { ErrorsState } from '@widgets/ErrorBox/types';
 import { useCustomDrop } from '@pages/hooks/useCustomDrop';
 import { useUpdatePosition } from '@pages/hooks/useUpdatePosition';
 import TextContainer from '@entities/TextContainer';
@@ -16,6 +17,12 @@ import styles from './style.module.scss';
 
 const Home = () => {
 	const [isConsoleShown, setIsConsoleShown] = useState(true);
+	const [isErrorShown, setIsErrorShown] = useState<ErrorsState>([
+		false,
+		false,
+		false,
+		false,
+	]);
 	const { state: position, dispatch: setPosition } = useUpdatePosition();
 	const areaRef = useRef<HTMLDivElement>(null);
 	useCustomDrop({
@@ -34,10 +41,22 @@ const Home = () => {
 						technologies={stack}
 					/>
 				</TextContainer>
-				{errorsText.map((error) => (
-					<ErrorBox text={error} onClose={() => {}} />
-				))}
-
+				{errorsText.map(
+					(error, index) =>
+						isErrorShown[index] && (
+							<ErrorBox
+								key={index}
+								text={error}
+								onClose={() =>
+									setIsErrorShown((prev) => {
+										const newState = [...prev];
+										newState[index] = false;
+										return newState as ErrorsState;
+									})
+								}
+							/>
+						)
+				)}
 				{/*<TextContainer title='О себе'>*/}
 				{/*	{formatText(aboutMe)}*/}
 				{/*</TextContainer>*/}

@@ -9,8 +9,9 @@ const ErrorBox = ({ text, onClose }: ErrorBoxProps) => (
 				<img className={styles.image} src={error} alt='error icon' />
 				<p className={styles.errorText}>{text}</p>
 			</div>
-			<button onClick={onClose} className={styles.button}>ОК</button>
+			<button onClick={onClose} className={styles.okButton}>ОК</button>
 		</div>
+		<button onClick={onClose} className={styles.closeButton}>✖</button>
 	</div>
 );
 

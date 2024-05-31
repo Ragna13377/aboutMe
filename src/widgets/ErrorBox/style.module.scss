@@ -1,4 +1,5 @@
 $background-color: #F0F0F0;
+$box-border: 5px;
 .container {
 	position: absolute;
 	top: 400px;
@@ -7,17 +8,18 @@ $background-color: #F0F0F0;
 	height: 180px;
 
 	font-family: Segoe UI, Tahoma, sans-serif;
-	background-color: $background-color;
-	border: 5px solid;
-	border-block-start: 30px solid;
-	border-image-slice: 1;
-	border-image-source: repeating-linear-gradient(45deg, rgba(25, 40, 55, 0.75) 35%, rgba(65, 85, 100, 0.75) 40%, rgba(65, 85, 100, 0.75) 42%, rgba(25, 40, 55, 0.75) 50%, rgba(25, 40, 55, 0.75) 55%, rgba(70, 85, 100, 0.75) 60%, rgba(70, 85, 100, 0.75) 75%, rgba(25, 40, 55, 0.75) 90%);
-	box-shadow: inset 0 0 0 1px rgba(246, 246, 247, 0.92), 0 7px 19px rgba(0, 0, 0, 0.9);
+	background: repeating-linear-gradient(45deg, rgba(25, 40, 55, 0.75) 35%, rgba(65, 85, 100, 0.75) 40%, rgba(65, 85, 100, 0.75) 42%, rgba(25, 40, 55, 0.75) 50%, rgba(25, 40, 55, 0.75) 55%, rgba(70, 85, 100, 0.75) 60%, rgba(70, 85, 100, 0.75) 75%, rgba(25, 40, 55, 0.75) 90%);;
+	border-radius: 6px;
+	backdrop-filter: blur(3px);
+	border: 1px solid rgba(2, 3, 4, 0.86);
+	padding: 30px $box-border $box-border;
+	box-shadow: inset 0 0 0 1px hsl(0deg 0% 61.56% / 92%), 0 7px 19px rgba(0, 0, 0, .9);
 }
 .content {
 	width: 100%;
 	height: 100%;
 	border-radius: 1px;
+	background-color: $background-color;
 	border: 1px solid rgba(24, 29, 31, 0.71);
 	box-shadow: 0 0 0 1px rgba(207, 210, 214, 0.71);
 	padding: 25px;
@@ -35,6 +37,7 @@ $background-color: #F0F0F0;
 .image {
 	width: 40px;
 	aspect-ratio: 1/1;
+	user-select: none;
 }
 
 .errorText {
@@ -50,7 +53,7 @@ $background-color: #F0F0F0;
 	}
 }
 
-.button {
+.okButton {
 	background: $background-color;
 	height: 27px;
 	min-width: 85px;
@@ -65,5 +68,20 @@ $background-color: #F0F0F0;
 	}
 	&:active {
 		background-color: #f1f1f1;
+	}
+}
+.closeButton {
+	position: absolute;
+	inset-block-start: 0;
+	inset-inline-end: $box-border;
+	width: 45px;
+	height: 20px;
+	font-size: 14px;
+	color: white;
+	background: linear-gradient(rgba(225, 168, 159, 0.91), rgba(195, 114, 104, 0.91) 50%, rgba(170, 52, 36, 0.91) 55%, rgba(187, 111, 94, 0.91));
+	border-radius: 0 0 4px 4px;
+	box-shadow: inset 0 0 0 1px rgba(212, 216, 221, 0.8), 0 0 0 1px rgba(28, 32, 23, 0.8), 0 0 10px 1px rgb(220, 113, 86);
+	&:hover, &:active {
+		box-shadow: inset 0 0 0 1px rgba(212, 216, 221, 0.8), 0 0 0 1px rgba(28, 32, 23, 0.8), 0 0 10px 5px rgb(220, 113, 86);
 	}
 }

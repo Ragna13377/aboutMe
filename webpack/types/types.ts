@@ -7,6 +7,7 @@ export interface WebpackPaths {
 	entry: string;
 	output: string;
 	html: string;
+	port: number;
 }
 export interface WebpackOptions {
 	paths: WebpackPaths;
