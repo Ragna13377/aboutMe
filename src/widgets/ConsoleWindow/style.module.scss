@@ -110,7 +110,7 @@ $panel-height: 25px;
 	--scrollbar-width: thin;
 	--scrollbar-width-legacy: 10px;
 	height: calc(100% - $panel-height);
-	padding: 10px 20px;
+	padding: 10px 20px 20px;
 	overflow-y: scroll;
 
 	@supports (scrollbar-width: auto) {

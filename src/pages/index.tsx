@@ -9,6 +9,8 @@ import WelcomeContent from '@widgets/WelcomeContent';
 import { useCustomDrop } from '@pages/hooks/useCustomDrop';
 import docx from './images/docx.svg';
 import styles from './style.module.scss';
+import { aboutMe } from '@shared/constants';
+import TextContainer from '@entities/TextContainer';
 
 const Home = () => {
 	const [isConsoleShown, setIsConsoleShown] = useState(true);
@@ -23,12 +25,13 @@ const Home = () => {
 			<div className={styles.layout} />
 			<div className={styles.content} ref={areaRef}>
 				<WelcomeContent />
-				<TechnologyList
-					title='Навыки'
-					orientation='vertical'
-					listType='stack'
-					technologies={stack}
-				/>
+				<TextContainer title='Навыки'>
+					<TechnologyList
+						orientation='vertical'
+						listType='stack'
+						technologies={stack}
+					/>
+				</TextContainer>
 				<TechnologyList
 					orientation='horizontal'
 					listType='socials'
@@ -42,7 +45,7 @@ const Home = () => {
 				/>
 				{isConsoleShown && (
 					<ConsoleWindow
-						textBlock={experience}
+						textBlock={experience.concat(aboutMe)}
 						processName='Work Progress'
 						position={position.console}
 						onClose={() => setIsConsoleShown(false)}

@@ -8,12 +8,14 @@ export const formatText = (
 	maxLineLength?: TSplitRangeLine
 ) =>
 	data.reduce((acc: string[], { date, title, description }) => {
-		if (!maxLineLength) acc.push(`\n${date}\t${title}\n${description}`);
+		if (!maxLineLength)
+			acc.push(`\n${date ? date + '\t' : ''}${title}\n${description}`);
 		else {
 			acc = acc.concat(
-				separateByLength(`${date}\t${title}`, maxLineLength).concat(
-					separateByLength(`${description}`, maxLineLength)
-				)
+				separateByLength(
+					`${date ? date + '\t' : ''}${title}`,
+					maxLineLength
+				).concat(separateByLength(`${description}`, maxLineLength))
 			);
 		}
 		acc.push('='.repeat(60));

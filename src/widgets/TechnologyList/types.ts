@@ -5,5 +5,4 @@ export type TechnologyListProps = {
 	technologies: TTechnology[];
 	orientation: 'horizontal' | 'vertical';
 	listType: TGridPart;
-	title?: string;
 };

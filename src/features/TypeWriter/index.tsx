@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '@widgets/ConsoleWindow/style.module.scss';
 import { TypeWriterProps } from '@features/TypeWriter/types';
 
-const TypeWriter = ({ text, speed, delay }: TypeWriterProps) => {
+const TypeWriter = ({ text, speed, delay, container }: TypeWriterProps) => {
 	const [currentText, setCurrentText] = useState('Loading...');
 	const [currentIndex, setCurrentIndex] = useState(-1);
 	useEffect(() => {
@@ -17,9 +17,11 @@ const TypeWriter = ({ text, speed, delay }: TypeWriterProps) => {
 				if (currentIndex < text.length) {
 					setCurrentText((prev) => prev + '\n' + text[currentIndex]);
 					setCurrentIndex((prev) => prev + 1);
+					if (container.current) container.current.scrollTop = container.current.scrollHeight;
 				} else {
 					setCurrentText((prev) => prev + '\n');
 					setCurrentIndex((prev) => prev + 1);
+					if (container.current) container.current.scrollTop = container.current.scrollHeight;
 					clearInterval(interval);
 				}
 			}, speed);

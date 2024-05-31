@@ -2,9 +2,9 @@ import { XYCoord } from 'react-dnd';
 import { IntRange } from '@shared/types';
 
 export type ConsoleTextBlock = {
-	date: string;
 	title: string;
 	description: string;
+	date?: string;
 };
 export type ConsoleWindowProps = {
 	position: XYCoord;

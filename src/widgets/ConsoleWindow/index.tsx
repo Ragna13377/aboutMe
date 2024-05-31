@@ -15,6 +15,7 @@ const ConsoleWindow = ({
 	const [isMinimized, setIsMinimized] = useState(false);
 	const consoleRef = useRef<HTMLDivElement>(null);
 	const panelRef = useRef<HTMLDivElement>(null);
+	const contentRef = useRef<HTMLDivElement>(null);
 	const { isDrag } = useCustomDrag({ type: 'console', ref: panelRef });
 	useEffect(() => {
 		if (isDrag) window.getSelection()?.removeAllRanges();
@@ -44,12 +45,13 @@ const ConsoleWindow = ({
 					/>
 				</div>
 			</div>
-			<div className={styles.content}>
+			<div className={styles.content} ref={contentRef}>
 				{textBlock && (
 					<TypeWriter
 						text={formatText(textBlock, 70)}
-						speed={300}
+						speed={250}
 						delay={1500}
+						container={contentRef}
 					/>
 				)}
 			</div>

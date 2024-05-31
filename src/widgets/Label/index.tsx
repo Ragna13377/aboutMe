@@ -2,6 +2,7 @@ import { clsx } from 'clsx';
 import { XYCoord } from 'react-dnd';
 import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { menuWidth } from '@entities/ContextMenu/constants';
+import { emptyPosition } from '@shared/constants';
 import { LabelProps } from '@widgets/Label/types';
 import { useCustomDrag } from '@shared/hooks/useCustomDrag';
 import { useRemoveFocus } from '@widgets/Label/hooks';
@@ -11,10 +12,7 @@ import styles from './style.module.scss';
 const Label = ({ image, description, handleOpen, position }: LabelProps) => {
 	const labelRef = useRef<HTMLButtonElement>(null);
 	const [isContextShown, setIsContextShown] = useState(false);
-	const [contextMenuPosition, setContextMenuPosition] = useState<XYCoord>({
-		x: 0,
-		y: 0,
-	});
+	const [contextMenuPosition, setContextMenuPosition] = useState<XYCoord>(emptyPosition);
 	const { isFocus, setIsFocus } = useRemoveFocus(labelRef);
 	const { isDrag } = useCustomDrag({ type: 'label', ref: labelRef });
 	useEffect(() => {
