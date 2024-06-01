@@ -1,6 +1,5 @@
-import { PropsWithChildren } from 'react';
-
-export type ButtonProps = PropsWithChildren & {
-	onClick?: () => void;
-	extraClass?: string;
+export type ButtonProps = {
+	text: string;
+	onClick: () => void;
+	extraStyle?: string;
 };

@@ -2,6 +2,8 @@
 
 $button-width: 150px;
 $button-height: 40px;
+$error-color: #980101;
+$disabled-color: #818181;
 
 .button {
 	position: relative;
@@ -15,30 +17,20 @@ $button-height: 40px;
 	min-height: $button-height;
 	padding: 0 15px;
 	overflow: hidden;
-	color: var(--console-text);
 	font-weight: 900;
 	background-color: var(--console-color);
 	border: none;
 	cursor: pointer;
-	clip-path: polygon(50% 0%, 100% 0, 100% 100%, 10% 100%, 0 70%, 0 0);
 
 	&::after {
 		content: '⇒';
 	}
-
 	&::before {
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: var(--console-text);
 		translate: 98% 0;
 		transition: translate 0s linear;
-	}
-
-	&:hover, &:active {
-		&::after {
-			animation: flickering 0.8s infinite;
-		}
 	}
 	&:active {
 		&::before {
@@ -49,5 +41,49 @@ $button-height: 40px;
 	}
 	&:focus-visible {
 		outline: 5px solid black;
+	}
+}
+
+.active {
+	color: var(--console-text);
+	clip-path: polygon(50% 0%, 100% 0, 100% 100%, 10% 100%, 0 70%, 0 0);
+	&::before {
+		background: var(--console-text);
+	}
+	&:hover, &:active {
+		&::after {
+			animation: flickering 0.8s infinite;
+		}
+	}
+}
+.error {
+	box-shadow: inset 0 0 6px 0 red;
+	transition: box-shadow 5s linear;
+	color: $error-color;
+	animation: error 5s infinite;
+	clip-path: polygon(0 0, 50% 0, 55% 10%, 48% 20%, 55% 30%, 45% 40%, 55% 50%, 45% 60%, 52% 70%, 40% 80%, 48% 90%, 45% 100%, 80% 100%, 75% 90%, 80% 80%, 70% 70%, 77% 60%, 65% 50%, 70% 40%, 60% 30%, 65% 20%, 60% 10%, 100% 0, 100% 100%, 10% 100%, 0 70%, 0 0);
+	&::before {
+		background: $error-color;
+	}
+
+}
+.disabled {
+	box-shadow: inset 0 0 6px 0 grey;
+	color: $disabled-color;
+	clip-path: polygon(0 0, 50% 0, 55% 10%, 48% 20%, 55% 30%, 45% 40%, 55% 50%, 45% 60%, 52% 70%, 40% 80%, 48% 90%, 45% 100%, 80% 100%, 75% 90%, 80% 80%, 70% 70%, 77% 60%, 65% 50%, 70% 40%, 60% 30%, 65% 20%, 60% 10%, 100% 0, 100% 100%, 10% 100%, 0 70%, 0 0);
+	&::before {
+		background: $disabled-color;
+	}
+	filter: grayscale(1);
+}
+
+@keyframes error {
+	0%, 5%, 50%, 99% {
+		color: #E50000FF;
+		text-shadow: 0 0 2px #cb0000;
+	}
+	2%, 6%, 51%, 100% {
+		color: $error-color;
+		text-shadow: 0 0 0 #cb0000;
 	}
 }

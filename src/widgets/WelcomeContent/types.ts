@@ -1,3 +1,7 @@
+import { Dispatch, SetStateAction } from 'react';
+import { AppState } from '@shared/types';
+
 export type WelcomeContentProps = {
-	onClick?: () => void;
+	appState: AppState;
+	setAppState: Dispatch<SetStateAction<AppState>>;
 };

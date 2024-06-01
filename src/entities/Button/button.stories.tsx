@@ -12,6 +12,7 @@ type Story = StoryObj<typeof meta>;
 
 export const BasicButton: Story = {
 	args: {
-		children: 'Click',
+		text: 'Click',
+		onClick: () => {},
 	},
 };

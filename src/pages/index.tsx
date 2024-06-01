@@ -3,6 +3,7 @@ import { aboutMe } from '@shared/constants';
 import { errorsText, socials, stack } from '@pages/constants';
 import { experience } from '@widgets/ConsoleWindow/constants';
 import { ErrorsState } from '@widgets/ErrorBox/types';
+import { AppState } from '@shared/types';
 import { useCustomDrop } from '@pages/hooks/useCustomDrop';
 import { useUpdatePosition } from '@pages/hooks/useUpdatePosition';
 import TextContainer from '@entities/TextContainer';
@@ -16,7 +17,8 @@ import docx from './images/docx.svg';
 import styles from './style.module.scss';
 
 const Home = () => {
-	const [isConsoleShown, setIsConsoleShown] = useState(true);
+	const [appState, setAppState] = useState<AppState>(AppState.active);
+	const [isConsoleShown, setIsConsoleShown] = useState(false);
 	const [isErrorShown, setIsErrorShown] = useState<ErrorsState>([
 		false,
 		false,
@@ -33,7 +35,10 @@ const Home = () => {
 		<main className={styles.main}>
 			<div className={styles.layout} />
 			<div className={styles.content} ref={areaRef}>
-				<WelcomeContent />
+				<WelcomeContent
+					appState={appState}
+					setAppState={setAppState}
+				/>
 				<TextContainer title='Навыки'>
 					<TechnologyList
 						orientation='vertical'
