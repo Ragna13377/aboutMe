@@ -8,12 +8,14 @@ const TechnologyList = ({
 	technologies,
 	orientation,
 	listType,
+	externalStyles,
 }: TechnologyListProps) => (
 	<ul
 		className={clsx(
 			styles.technologyList,
 			styles[`${orientation}Orientation`],
-			styles[`${listType}List`]
+			styles[`${listType}List`],
+			externalStyles && externalStyles
 		)}
 	>
 		{technologies.map((technology) => (

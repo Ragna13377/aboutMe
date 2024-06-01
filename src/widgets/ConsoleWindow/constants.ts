@@ -1,4 +1,5 @@
 import { ConsoleTextBlock } from '@widgets/ConsoleWindow/types';
+import { aboutMe, hobby } from '@shared/constants';
 
 export const experience: ConsoleTextBlock[] = [
 	{
@@ -23,5 +24,13 @@ export const experience: ConsoleTextBlock[] = [
 		title: 'Навыки',
 		description:
 			'React, Redux, TypeScript, JavaScript, Jest, Cypress, Storybook, Webpack, Docker, Kubernetes, Git, Styled-Components',
+	},
+	{
+		title: 'О себе',
+		description: aboutMe,
+	},
+	{
+		title: 'Хобби',
+		description: hobby,
 	},
 ];

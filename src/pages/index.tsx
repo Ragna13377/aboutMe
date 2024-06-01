@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { aboutMe } from '@shared/constants';
+import { aboutMe, hobby } from '@shared/constants';
 import { errorsText, socials, stack } from '@pages/constants';
 import { experience } from '@widgets/ConsoleWindow/constants';
 import { ErrorsState } from '@widgets/ErrorBox/types';
@@ -9,7 +9,6 @@ import { useUpdatePosition } from '@pages/hooks/useUpdatePosition';
 import TextContainer from '@entities/TextContainer';
 import ConsoleWindow from '@widgets/ConsoleWindow';
 import ErrorBox from '@widgets/ErrorBox';
-import { formatText } from '@widgets/ConsoleWindow/utils';
 import Label from '@widgets/Label';
 import TechnologyList from '@widgets/TechnologyList';
 import WelcomeContent from '@widgets/WelcomeContent';
@@ -38,14 +37,46 @@ const Home = () => {
 				<WelcomeContent
 					appState={appState}
 					setAppState={setAppState}
+					externalClass={styles.gridMiddle}
 				/>
-				<TextContainer title='Навыки'>
-					<TechnologyList
-						orientation='vertical'
-						listType='stack'
-						technologies={stack}
+				<TechnologyList
+					externalStyles={styles.gridBottom}
+					orientation='horizontal'
+					listType='socials'
+					technologies={socials}
+				/>
+				{appState !== AppState.active && (
+					<>
+						<TextContainer title='Навыки' externalStyles={styles.stackPosition}>
+							<TechnologyList
+								orientation='vertical'
+								listType='stack'
+								technologies={stack}
+							/>
+						</TextContainer>
+						<TextContainer title='О себе' externalStyles={styles.aboutPosition}>
+							<>
+								<p>{aboutMe}</p>
+								<h4>Хобби</h4>
+								<p>{hobby}</p>
+							</>
+						</TextContainer>
+					</>
+				)}
+				<Label
+					image={docx}
+					description='Резюме'
+					handleOpen={() => setIsConsoleShown(true)}
+					position={position.label}
+				/>
+				{isConsoleShown && (
+					<ConsoleWindow
+						textBlock={experience}
+						processName='Work Progress'
+						position={position.console}
+						onClose={() => setIsConsoleShown(false)}
 					/>
-				</TextContainer>
+				)}
 				{errorsText.map(
 					(error, index) =>
 						isErrorShown[index] && (
@@ -61,28 +92,6 @@ const Home = () => {
 								}
 							/>
 						)
-				)}
-				{/*<TextContainer title='О себе'>*/}
-				{/*	{formatText(aboutMe)}*/}
-				{/*</TextContainer>*/}
-				<TechnologyList
-					orientation='horizontal'
-					listType='socials'
-					technologies={socials}
-				/>
-				<Label
-					image={docx}
-					description='Резюме'
-					handleOpen={() => setIsConsoleShown(true)}
-					position={position.label}
-				/>
-				{isConsoleShown && (
-					<ConsoleWindow
-						textBlock={experience.concat(aboutMe)}
-						processName='Work Progress'
-						position={position.console}
-						onClose={() => setIsConsoleShown(false)}
-					/>
 				)}
 			</div>
 		</main>

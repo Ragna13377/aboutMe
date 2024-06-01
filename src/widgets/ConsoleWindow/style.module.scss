@@ -17,6 +17,7 @@ $panel-height: 25px;
 	background-color: var(--console-color);
 	border: 2px solid var(--console-text);
 	outline: 3px solid var(--console-color);
+	z-index: 100;
 }
 
 .panel {

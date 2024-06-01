@@ -10,6 +10,7 @@ $label-offset-y: 15px;
 	justify-content: center;
 	gap: 5px;
 	padding: 5px;
+	z-index: 100;
 	&:hover {
 		background-color: rgba(148, 153, 164, 0.4);
 	}

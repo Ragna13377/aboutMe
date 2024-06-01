@@ -2,13 +2,11 @@
 	display: flex;
 }
 .stackList {
-	grid-area: stack;
 	gap: 10px;
 	text-align: start;
 }
 
 .socialsList {
-	grid-area: socials;
 	justify-content: space-evenly;
 }
 

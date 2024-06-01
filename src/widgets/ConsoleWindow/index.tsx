@@ -48,7 +48,7 @@ const ConsoleWindow = ({
 			<div className={styles.content} ref={contentRef}>
 				{textBlock && (
 					<TypeWriter
-						text={formatText(textBlock, 70)}
+						text={formatText(textBlock, true, 70)}
 						speed={250}
 						delay={1500}
 						container={contentRef}

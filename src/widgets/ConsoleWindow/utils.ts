@@ -5,12 +5,13 @@ import {
 
 export const formatText = (
 	data: ConsoleTextBlock[],
+	addSeparator = true,
 	maxLineLength?: TSplitRangeLine
 ) =>
 	data.reduce((acc: string[], { date, title, description }) => {
-		if (!maxLineLength)
+		if (!maxLineLength) {
 			acc.push(`\n${date ? date + '\t' : ''}${title}\n${description}`);
-		else {
+		} else {
 			acc = acc.concat(
 				separateByLength(
 					`${date ? date + '\t' : ''}${title}`,
@@ -18,7 +19,7 @@ export const formatText = (
 				).concat(separateByLength(`${description}`, maxLineLength))
 			);
 		}
-		acc.push('='.repeat(60));
+		if (addSeparator) acc.push('='.repeat(60));
 		return acc;
 	}, []);
 

@@ -1,13 +1,18 @@
-import React, { memo } from 'react';
+import { clsx } from 'clsx';
+import { memo } from 'react';
 import { AppState } from '@shared/types';
 import { WelcomeContentProps } from '@widgets/WelcomeContent/types';
+import { getEnumKeyByValue } from '@shared/utils';
 import GlitchText from '@entities/GlitchText';
 import Button from '@entities/Button';
 import styles from './style.module.scss';
-import { getEnumKeyByValue } from '@shared/utils';
 
-const WelcomeContent = ({ appState, setAppState }: WelcomeContentProps) => (
-	<div className={styles.welcomeContent}>
+const WelcomeContent = ({
+	appState,
+	setAppState,
+	externalClass,
+}: WelcomeContentProps) => (
+	<div className={clsx(styles.welcomeContent, externalClass && externalClass)}>
 		<GlitchText>Hello World!</GlitchText>
 		<Button
 			text={appState === AppState.active ? 'Open' : 'Error'}

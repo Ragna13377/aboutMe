@@ -29,13 +29,57 @@ $bg-color: #171717;
 .content {
 	z-index: 10;
 	display: grid;
-	grid-template-rows: 2fr 2fr 1fr;
-	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-rows: 1fr minmax(max-content, 1fr) 1fr;
+	grid-template-columns: minmax(200px, 1fr) 2fr minmax(200px, 1fr);
+	gap: 10px;
 	grid-template-areas:
-			'stack . .'
-			'. . .'
-			'. . socials';
+			'top . .'
+			'. middle .'
+			'. . bottom';
 	width: 100%;
 	height: 100%;
-	padding: 2.5% 5%;
+	padding: 6% 10%;
+}
+
+.gridTop {
+	grid-area: top;
+}
+.gridMiddle {
+	grid-area: middle;
+	justify-self: center;
+}
+.gridBottom {
+	grid-area: bottom;
+	gap: 50px;
+	justify-content: flex-end;
+	align-self: flex-end;
+}
+
+.stackPosition {
+	position: absolute;
+	inset-block-start: 8%;
+	inset-inline-start: 8%;
+	z-index: 10;
+	opacity: 0;
+	animation: fadeIn 3s ease 0s forwards;
+}
+
+.aboutPosition {
+	position: absolute;
+	inset-block-end: 15%;
+	inset-inline-start: 15%;
+	z-index: 15;
+	opacity: 0;
+	animation: fadeIn 2s ease 1.5s forwards;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
