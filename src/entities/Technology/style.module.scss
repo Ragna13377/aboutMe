@@ -1,15 +1,3 @@
-.technology {
-	&:hover {
-		.technologyItem {
-			color: white;
-		}
-
-		img {
-			filter: none;
-		}
-	}
-}
-
 .technologyItem {
 	display: flex;
 	justify-content: flex-start;
@@ -35,3 +23,16 @@
 		max-width: 30px;
 	}
 }
+
+.technology {
+	&:hover {
+		.technologyItem {
+			color: white;
+		}
+
+		img {
+			filter: none;
+		}
+	}
+}
+

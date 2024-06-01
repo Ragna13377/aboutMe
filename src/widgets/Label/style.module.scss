@@ -1,45 +1,52 @@
 $label-offset-x: 15px;
 $label-offset-y: 15px;
+
 .labelContainer {
 	position: absolute;
-	inset-inline-end: calc((100% - var(--layout-height)) / 2 + $label-offset-x);
 	inset-block-start: calc((100% - var(--layout-height)) / 2 + $label-offset-y);
+	inset-inline-end: calc((100% - var(--layout-height)) / 2 + $label-offset-x);
+	z-index: 100;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
 	gap: 5px;
 	padding: 5px;
-	z-index: 100;
+
 	&:hover {
-		background-color: rgba(148, 153, 164, 0.4);
+		background-color: rgb(148 153 164 / 40%);
 	}
 }
+
 .labelImage {
 	width: 40px;
 	aspect-ratio: 1/1;
 }
+
 .labelDescription {
 	max-width: 80px;
-	cursor: default;
+	padding: 2px;
 	color: white;
-	border: none;
-	background-color: rgba(255, 255, 255, 0);
 	font-weight: 500;
 	font-size: 14px;
 	text-align: center;
-	padding: 2px;
+	background-color: rgb(255 255 255 / 0%);
+	border: none;
+	cursor: default;
+
 	&:focus {
-		cursor: text;
 		color: black;
-		border: 1px solid black;
 		background-color: white;
+		border: 1px solid black;
 		outline: none;
+		cursor: text;
 	}
 }
+
 .focused {
-	background-color: rgba(79, 104, 157, 0.4);
+	background-color: rgb(79 104 157 / 40%);
+
 	&:hover {
-		background-color: rgba(79, 104, 157, 0.4);
+		background-color: rgb(79 104 157 / 40%);
 	}
 }

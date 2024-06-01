@@ -10,6 +10,7 @@ $panel-height: 25px;
 	position: absolute;
 	inset-block-start: 100px;
 	inset-inline-start: calc(50% - 350px);
+	z-index: 100;
 	width: 700px;
 	height: 350px;
 	color: var(--console-text);
@@ -17,7 +18,6 @@ $panel-height: 25px;
 	background-color: var(--console-color);
 	border: 2px solid var(--console-text);
 	outline: 3px solid var(--console-color);
-	z-index: 100;
 }
 
 .panel {
@@ -26,17 +26,17 @@ $panel-height: 25px;
 	align-items: center;
 	height: $panel-height;
 	padding: 0 10px;
-
 	letter-spacing: -1px;
 	background-color: var(--console-color);
 	border-block-end: 2px solid var(--console-text);
 	user-select: none;
 }
+
 .panelTitle {
 	margin: 0;
+	overflow: hidden;
 	font-size: 15px;
 	white-space: nowrap;
-	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
@@ -49,16 +49,19 @@ $panel-height: 25px;
 .button {
 	width: 15px;
 	padding: 0;
-	background-color: rgba(255, 255, 255, 0);
+	background-color: rgb(255 255 255 / 0%);
 	border: none;
 	aspect-ratio: 1/1;
+
 	&:focus {
 		outline: none;
 	}
+
 	&:hover, &:focus-visible {
 		background-color: $button-hover;
 		outline: 3px solid $button-hover;
 	}
+
 	&:active {
 		background-color: $button-active;
 		outline: 3px solid $button-active;
@@ -137,8 +140,9 @@ $panel-height: 25px;
 
 .textBlock {
 	margin: 0;
-	white-space: break-spaces;
 	letter-spacing: -0.5px;
+	white-space: break-spaces;
+
 	&::after {
 		content: '▋';
 		animation: flickering 0.8s infinite;
@@ -160,13 +164,16 @@ $panel-height: 25px;
 	width: 200px;
 	height: $panel-height + 4px;
 	overflow: hidden;
+
 	.panel {
 		border: none;
 	}
+
 	.content{
 		display: none;
 	}
 }
+
 .nodrag{
 	cursor: auto;
 }

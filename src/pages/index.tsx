@@ -37,6 +37,7 @@ const Home = () => {
 				<WelcomeContent
 					appState={appState}
 					setAppState={setAppState}
+					setIsConsoleShown={setIsConsoleShown}
 					externalClass={styles.gridMiddle}
 				/>
 				<TechnologyList

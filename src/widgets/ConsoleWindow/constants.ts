@@ -3,10 +3,10 @@ import { aboutMe, hobby } from '@shared/constants';
 
 export const experience: ConsoleTextBlock[] = [
 	{
-		date: '2020-2022',
-		title: 'Фриланс',
+		date: '2023-2024',
+		title: 'Think Studio',
 		description:
-			'Работал с legacy-кодом, jQuery и AJAX-запросами. Оптимизировал время загрузки сайтов, переносил существующие проекты на React + Redux.',
+			'Реализован веб-сервис поиска работы с помощью NodeJS, MondoDB, React и Bootstrap. Интегрировал аутентификацию пользователей с приложениями Github Oauth2.',
 	},
 	{
 		date: '2022-2023',
@@ -15,10 +15,10 @@ export const experience: ConsoleTextBlock[] = [
 			'Завершил разработку веб-сайта компании с импользованием React, Typescript. Автоматизировал развертывание системы с помощью Docker, Nginx в облаке Amazon',
 	},
 	{
-		date: '2023-2024',
-		title: 'Think Studio',
+		date: '2020-2022',
+		title: 'Фриланс',
 		description:
-			'Реализован веб-сервис поиска работы с помощью NodeJS, MondoDB, React и Bootstrap. Интегрировал аутентификацию пользователей с приложениями Github Oauth2.',
+			'Работал с legacy-кодом, jQuery и AJAX-запросами. Оптимизировал время загрузки сайтов, переносил существующие проекты на React + Redux.',
 	},
 	{
 		title: 'Навыки',

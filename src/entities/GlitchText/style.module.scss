@@ -5,7 +5,6 @@
 	font-size: 60px;
 	font-family: "OverpassMono", monospace;
 	animation: glitch 5s step-end infinite;
-	user-select: none;
 
 	&::after, &::before {
 		position: absolute;
