@@ -10,7 +10,7 @@ export type ConsoleWindowProps = {
 	position: XYCoord;
 	processName: string;
 	onClose: () => void;
-	textBlock?: ConsoleTextBlock[];
+	textBlock: ConsoleTextBlock[];
 };
 
 export type TSplitRangeLine = IntRange<20, 71>;

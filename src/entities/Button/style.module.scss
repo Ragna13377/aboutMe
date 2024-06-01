@@ -2,7 +2,7 @@
 
 $button-width: 150px;
 $button-height: 40px;
-$error-color: #980101;
+$error-color: #800000;
 $disabled-color: #818181;
 
 .button {
@@ -89,12 +89,12 @@ $disabled-color: #818181;
 
 @keyframes error {
 	0%, 5%, 50%, 99% {
-		color: #E50000FF;
-		text-shadow: 0 0 2px #cb0000;
+		color: #a90000;
+		text-shadow: 0 0 2px #a90000;
 	}
 
 	2%, 6%, 51%, 100% {
 		color: $error-color;
-		text-shadow: 0 0 0 #cb0000;
+		text-shadow: 0 0 0 #a90000;
 	}
 }

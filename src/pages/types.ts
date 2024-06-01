@@ -1,6 +1,6 @@
 import { RefObject } from 'react';
 import { dropTypes } from '@shared/types';
-import { DropTargetMonitor, XYCoord } from 'react-dnd';
+import { XYCoord } from 'react-dnd';
 
 export type UpdatePositionState = Record<
 	dropTypes,
@@ -14,11 +14,5 @@ export type UpdatePositionAction = {
 
 export type CustomDropProps = {
 	ref: RefObject<HTMLDivElement>;
-	setPosition: (value: UpdatePositionAction) => void;
-};
-
-export type TChangePosition = {
-	item: { type: dropTypes };
-	monitor: DropTargetMonitor<{ type: dropTypes }, unknown>;
 	setPosition: (value: UpdatePositionAction) => void;
 };

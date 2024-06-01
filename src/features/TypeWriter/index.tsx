@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import styles from '@widgets/ConsoleWindow/style.module.scss';
+import React, { memo, useEffect, useState } from 'react';
 import { TypeWriterProps } from '@features/TypeWriter/types';
 
-const TypeWriter = ({ text, speed, delay, container }: TypeWriterProps) => {
+const TypeWriter = ({ text, speed, delay, container, externalStyle }: TypeWriterProps) => {
 	const [currentText, setCurrentText] = useState('Loading...');
 	const [currentIndex, setCurrentIndex] = useState(-1);
 	useEffect(() => {
@@ -31,7 +30,7 @@ const TypeWriter = ({ text, speed, delay, container }: TypeWriterProps) => {
 			if (interval) clearInterval(interval);
 		};
 	}, [currentIndex, delay, speed, text]);
-	return <pre className={styles.textBlock}>{currentText}</pre>;
+	return <pre className={externalStyle}>{currentText}</pre>;
 };
 
-export default TypeWriter;
+export default memo(TypeWriter);

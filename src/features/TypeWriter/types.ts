@@ -5,4 +5,5 @@ export type TypeWriterProps = {
 	speed: number;
 	delay: number;
 	container: RefObject<HTMLDivElement>;
+	externalStyle?: string;
 };

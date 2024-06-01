@@ -1,4 +1,5 @@
 import { clsx } from 'clsx';
+import { memo } from 'react';
 import { TextContainerProps } from '@entities/TextContainer/types';
 import styles from './styles.module.scss';
 
@@ -13,4 +14,4 @@ const TextContainer = ({
 	</div>
 );
 
-export default TextContainer;
+export default memo(TextContainer);

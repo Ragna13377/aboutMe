@@ -1,9 +1,10 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { aboutMe, hobby } from '@shared/constants';
 import { errorsText, socials, stack } from '@pages/constants';
 import { experience } from '@widgets/ConsoleWindow/constants';
 import { ErrorsState } from '@widgets/ErrorBox/types';
 import { AppState } from '@shared/types';
+import { useAppState } from '@pages/hooks/useAppState';
 import { useCustomDrop } from '@pages/hooks/useCustomDrop';
 import { useUpdatePosition } from '@pages/hooks/useUpdatePosition';
 import TextContainer from '@entities/TextContainer';
@@ -16,14 +17,14 @@ import docx from './images/docx.svg';
 import styles from './style.module.scss';
 
 const Home = () => {
-	const [appState, setAppState] = useState<AppState>(AppState.active);
-	const [isConsoleShown, setIsConsoleShown] = useState(false);
-	const [isErrorShown, setIsErrorShown] = useState<ErrorsState>([
-		false,
-		false,
-		false,
-		false,
-	]);
+	const {
+		appState,
+		isConsoleShown,
+		setIsConsoleShown,
+		isErrorShown,
+		setIsErrorShown,
+		handleWelcomeClick
+	} = useAppState();
 	const { state: position, dispatch: setPosition } = useUpdatePosition();
 	const areaRef = useRef<HTMLDivElement>(null);
 	useCustomDrop({
@@ -36,8 +37,7 @@ const Home = () => {
 			<div className={styles.content} ref={areaRef}>
 				<WelcomeContent
 					appState={appState}
-					setAppState={setAppState}
-					setIsConsoleShown={setIsConsoleShown}
+					onClick={handleWelcomeClick}
 					externalClass={styles.gridMiddle}
 				/>
 				<TechnologyList
@@ -78,12 +78,16 @@ const Home = () => {
 						onClose={() => setIsConsoleShown(false)}
 					/>
 				)}
-				{errorsText.map(
+				{appState === AppState.disabled && errorsText.map(
 					(error, index) =>
 						isErrorShown[index] && (
 							<ErrorBox
 								key={index}
 								text={error}
+								style={{
+									animationDelay: `${index * 0.2}s`,
+									translate: `${-40 - 10 * index}% ${-150 + 50 * index}%`,
+								}}
 								onClose={() =>
 									setIsErrorShown((prev) => {
 										const newState = [...prev];

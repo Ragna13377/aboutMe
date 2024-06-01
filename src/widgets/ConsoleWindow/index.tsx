@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ConsoleWindowProps } from '@widgets/ConsoleWindow/types';
 import { useCustomDrag } from '@shared/hooks/useCustomDrag';
 import { formatText } from '@widgets/ConsoleWindow/utils';
@@ -17,6 +17,7 @@ const ConsoleWindow = ({
 	const panelRef = useRef<HTMLDivElement>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
 	const { isDrag } = useCustomDrag({ type: 'console', ref: panelRef });
+	const formattedText = useMemo(() => formatText(textBlock, true, 70), []);
 	useEffect(() => {
 		if (isDrag) window.getSelection()?.removeAllRanges();
 	}, [isDrag]);
@@ -48,10 +49,11 @@ const ConsoleWindow = ({
 			<div className={styles.content} ref={contentRef}>
 				{textBlock && (
 					<TypeWriter
-						text={formatText(textBlock, true, 70)}
+						text={formattedText}
 						speed={250}
 						delay={1500}
 						container={contentRef}
+						externalStyle={styles.textBlock}
 					/>
 				)}
 			</div>

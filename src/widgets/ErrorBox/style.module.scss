@@ -3,8 +3,9 @@ $box-border: 5px;
 
 .container {
 	position: absolute;
-	top: 400px;
-	left: 300px;
+	inset-inline-start: 50%;
+	inset-block-start: 50%;
+	translate: -40% -25%;
 	width: 500px;
 	height: 180px;
 	padding: 30px $box-border $box-border;
@@ -14,22 +15,29 @@ $box-border: 5px;
 	border-radius: 6px;
 	box-shadow: inset 0 0 0 1px hsl(0deg 0% 61.56% / 92%), 0 7px 19px rgb(0 0 0 / 90%);
 	backdrop-filter: blur(3px);
+	opacity: 0;
+	animation: showing 0s forwards;
+	z-index: 500;
 }
 
 .content {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: flex-end;
 	width: 100%;
 	height: 100%;
 	padding: 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	background-color: $background-color;
 	border: 1px solid rgb(24 29 31 / 71%);
 	border-radius: 1px;
 	box-shadow: 0 0 0 1px rgb(207 210 214 / 71%);
 }
 
+.controls {
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
 .info {
 	display: flex;
 	justify-content: center;
@@ -88,4 +96,9 @@ $box-border: 5px;
 	&:hover, &:active {
 		box-shadow: inset 0 0 0 1px rgb(212 216 221 / 80%), 0 0 0 1px rgb(28 32 23 / 80%), 0 0 10px 5px rgb(220 113 86);
 	}
+}
+
+@keyframes showing {
+	from {opacity: 0}
+	to {opacity: 1}
 }

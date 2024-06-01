@@ -9,8 +9,7 @@ import styles from './style.module.scss';
 
 const WelcomeContent = ({
 	appState,
-	setAppState,
-	setIsConsoleShown,
+	onClick,
 	externalClass,
 }: WelcomeContentProps) => (
 	<div className={clsx(styles.welcomeContent, externalClass && externalClass)}>
@@ -18,13 +17,7 @@ const WelcomeContent = ({
 		<Button
 			text={appState === AppState.active ? 'Open' : 'Error'}
 			extraStyle={getEnumKeyByValue(AppState, appState)}
-			onClick={() => {
-				setIsConsoleShown(true);
-				setAppState((prev) => {
-					if (prev !== AppState.disabled) return prev + 1;
-					return prev;
-				});
-			}}
+			onClick={onClick}
 		/>
 	</div>
 );
