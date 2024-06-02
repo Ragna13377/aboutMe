@@ -68,6 +68,7 @@ export function getLoaders(mode: ProjectMode): ModuleOptions['rules'] {
       filename: isProd
         ? 'static/images/[hash][ext][query]'
         : 'static/images/[name][ext][query]',
+      publicPath: "./"
     }
   }
   const fontLoader = {
@@ -77,6 +78,7 @@ export function getLoaders(mode: ProjectMode): ModuleOptions['rules'] {
       filename: isProd
         ? 'static/fonts/[hash][ext][query]'
         : 'static/fonts/[name][ext][query]',
+      publicPath: "./"
     }
   }
   return [

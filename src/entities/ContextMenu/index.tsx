@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { ContextMenuProps } from '@entities/ContextMenu/types';
-import styles from './style.module.scss';
 import { downloadFile } from '@entities/ContextMenu/utils';
+import styles from './style.module.scss';
 
 const ContextMenu = ({
 	position,
