@@ -1,4 +1,24 @@
 @font-face {
+	font-weight: 500;
+	font-family: 'EpilepsySans';
+	font-style: normal;
+	font-display: swap;
+	src:
+			url('../assets/fonts/EpilepsySans.woff2') format('woff2'),
+			url('../assets/fonts/EpilepsySans.woff') format('woff'),
+			url('../assets/fonts/EpilepsySans.ttf') format('truetype');
+}
+@font-face {
+	font-weight: 700;
+	font-family: 'EpilepsySans';
+	font-style: normal;
+	font-display: swap;
+	src:
+			url('../assets/fonts/EpilepsySansBold.woff2') format('woff2'),
+			url('../assets/fonts/EpilepsySansBold.woff') format('woff'),
+			url('../assets/fonts/EpilepsySansBold.ttf') format('truetype');
+}
+@font-face {
 	font-weight: 300;
 	font-family: 'OverpassMono';
 	font-style: normal;

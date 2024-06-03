@@ -17,14 +17,14 @@
 	&::before {
 		inset-block-start: 5px;
 		inset-inline-start: 5px;
-		color: #8d2828;
+		color: var(--color-glitch-red);
 		animation: movement 10s step-end infinite;
 	}
 
 	&::after {
 		inset-block-start: 0;
 		inset-inline-start: -5px;
-		color: #479fab;
+		color: var(--color-glitch-blue);
 		animation: movement 8s step-end infinite;
 	}
 }

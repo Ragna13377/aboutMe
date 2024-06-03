@@ -38,10 +38,9 @@ $bg-color: #171717;
 			'top . .'
 			'. middle .'
 			'. . bottom';
-	gap: 10px;
 	width: 100%;
 	height: 100%;
-	padding: 6% 10%;
+	padding: calc(var(--layout-offset)) calc(var(--layout-offset) * 2);
 }
 
 .gridTop {

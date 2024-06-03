@@ -8,16 +8,17 @@ $panel-height: 25px;
 
 .container {
 	position: absolute;
-	inset-block-start: 100px;
-	inset-inline-start: calc(50% - 350px);
+	inset-block-start: calc(var(--layout-offset) + var(--label-offset) + 80px);
+	inset-inline-end: calc(var(--layout-offset) - 2%);
 	z-index: 100;
 	width: 700px;
 	height: 350px;
 	color: var(--console-text);
-	font-weight: 700;
 	background-color: var(--console-color);
 	border: 2px solid var(--console-text);
 	outline: 3px solid var(--console-color);
+	font-family: var(--console-font-family);
+	font-weight: 700;
 }
 
 .panel {
@@ -26,7 +27,6 @@ $panel-height: 25px;
 	align-items: center;
 	height: $panel-height;
 	padding: 0 10px;
-	letter-spacing: -1px;
 	background-color: var(--console-color);
 	border-block-end: 2px solid var(--console-text);
 	user-select: none;
@@ -140,9 +140,9 @@ $panel-height: 25px;
 
 .textBlock {
 	margin: 0;
-	letter-spacing: -0.5px;
 	white-space: break-spaces;
 	user-select: text;
+	font-family: EpilepsySans, monospace;
 
 	&::after {
 		content: '▋';

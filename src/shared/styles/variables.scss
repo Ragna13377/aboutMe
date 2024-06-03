@@ -1,7 +1,12 @@
 :root {
 	--accent-color: #b4b4b4;
-	--console-color: #1C1C1CFF;
-	--console-text: green;
+	--console-font-family: EpilepsySans, monospace;
+	--console-color: #161616;
+	--console-text: #1c8a1c;
 	--layout-width: 90%;
 	--layout-height: 90%;
-}
+	--label-offset: 15px;
+	--layout-offset: calc((100% - var(--layout-height)) / 2);
+	--color-glitch-blue: #479fab;
+	--color-glitch-red: #8d2828;
+};

@@ -5,6 +5,8 @@
 	background-color: var(--console-color);
 	border: 2px solid var(--console-text);
 	outline: 3px solid var(--console-color);
+	font-family: var(--console-font-family);
+	font-weight: 700;
 }
 
 .title {
@@ -17,6 +19,5 @@
 
 .content {
 	padding: 15px 15px 0;
-	font-weight: 500;
 	user-select: text;
 }

@@ -23,7 +23,7 @@ const Home = () => {
 		setIsConsoleShown,
 		isErrorShown,
 		setIsErrorShown,
-		handleWelcomeClick
+		handleWelcomeClick,
 	} = useAppState();
 	const { state: position, dispatch: setPosition } = useUpdatePosition();
 	const areaRef = useRef<HTMLDivElement>(null);
@@ -73,31 +73,32 @@ const Home = () => {
 				{isConsoleShown && (
 					<ConsoleWindow
 						textBlock={experience}
-						processName='Work Progress'
+						processName='Resume'
 						position={position.console}
 						onClose={() => setIsConsoleShown(false)}
 					/>
 				)}
-				{appState === AppState.disabled && errorsText.map(
-					(error, index) =>
-						isErrorShown[index] && (
-							<ErrorBox
-								key={index}
-								text={error}
-								style={{
-									animationDelay: `${index * 0.2}s`,
-									translate: `${-40 - 10 * index}% ${-150 + 50 * index}%`,
-								}}
-								onClose={() =>
-									setIsErrorShown((prev) => {
-										const newState = [...prev];
-										newState[index] = false;
-										return newState as ErrorsState;
-									})
-								}
-							/>
-						)
-				)}
+				{appState === AppState.disabled &&
+					errorsText.map(
+						(error, index) =>
+							isErrorShown[index] && (
+								<ErrorBox
+									key={index}
+									text={error}
+									style={{
+										animationDelay: `${index * 0.2}s`,
+										translate: `${-40 - 10 * index}% ${-150 + 50 * index}%`,
+									}}
+									onClose={() =>
+										setIsErrorShown((prev) => {
+											const newState = [...prev];
+											newState[index] = false;
+											return newState as ErrorsState;
+										})
+									}
+								/>
+							)
+					)}
 			</div>
 		</main>
 	);
