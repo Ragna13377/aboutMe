@@ -1,8 +1,8 @@
 import { useRef } from 'react';
+import { getRandomSign } from '@shared/utils';
 import { aboutMe, hobby } from '@shared/constants';
 import { errorsText, socials, stack } from '@pages/constants';
 import { experience } from '@widgets/ConsoleWindow/constants';
-import { ErrorsState } from '@widgets/ErrorBox/types';
 import { AppState } from '@shared/types';
 import { useAppState } from '@pages/hooks/useAppState';
 import { useCustomDrop } from '@pages/hooks/useCustomDrop';
@@ -19,6 +19,7 @@ import styles from './style.module.scss';
 const Home = () => {
 	const {
 		appState,
+		errorsShift,
 		isConsoleShown,
 		setIsConsoleShown,
 		isErrorShown,
@@ -87,13 +88,13 @@ const Home = () => {
 									text={error}
 									style={{
 										animationDelay: `${index * 0.2}s`,
-										translate: `${-40 - 10 * index}% ${-150 + 50 * index}%`,
+										translate: `${-40 - 10 * errorsShift[index] * index}% ${-150 + 50 * index}%`,
 									}}
 									onClose={() =>
 										setIsErrorShown((prev) => {
 											const newState = [...prev];
 											newState[index] = false;
-											return newState as ErrorsState;
+											return newState;
 										})
 									}
 								/>
