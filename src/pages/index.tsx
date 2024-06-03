@@ -5,7 +5,6 @@ import { experience } from '@widgets/ConsoleWindow/constants';
 import { AppState } from '@shared/types';
 import { useAppState } from '@pages/hooks/useAppState';
 import { useCustomDrop } from '@pages/hooks/useCustomDrop';
-import { useUpdatePosition } from '@pages/hooks/useUpdatePosition';
 import TextContainer from '@entities/TextContainer';
 import ConsoleWindow from '@widgets/ConsoleWindow';
 import ErrorBox from '@widgets/ErrorBox';
@@ -14,23 +13,14 @@ import TechnologyList from '@widgets/TechnologyList';
 import WelcomeContent from '@widgets/WelcomeContent';
 import docx from './images/docx.svg';
 import styles from './style.module.scss';
+import { useErrorBox } from '@widgets/ErrorBox/hooks';
 
 const Home = () => {
-	const {
-		appState,
-		errorsShift,
-		isConsoleShown,
-		setIsConsoleShown,
-		isErrorShown,
-		setIsErrorShown,
-		handleWelcomeClick,
-	} = useAppState();
-	const { state: position, dispatch: setPosition } = useUpdatePosition();
+	const { errorsShift, isErrorShown, setIsErrorShown } = useErrorBox();
+	const { appState, isConsoleShown, setIsConsoleShown, handleWelcomeClick } =
+		useAppState(setIsErrorShown);
 	const areaRef = useRef<HTMLDivElement>(null);
-	useCustomDrop({
-		ref: areaRef,
-		setPosition,
-	});
+	const { position } = useCustomDrop({ ref: areaRef });
 	return (
 		<main className={styles.main}>
 			<div className={styles.layout} />

@@ -27,5 +27,5 @@ export const useContextMenu = (isDrag: boolean) => {
 		isContextShown,
 		setIsContextShown,
 		contextMenuPosition,
-	}
-}
+	};
+};

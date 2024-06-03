@@ -1,18 +1,12 @@
-import { useCallback, useMemo, useState } from 'react';
+import { Dispatch, SetStateAction, useCallback, useState } from 'react';
 import { AppState } from '@shared/types';
 import { errorsText } from '@pages/constants';
-import { getRandomSign } from '@shared/utils';
 
-export const useAppState = () => {
+export const useAppState = (
+	setIsErrorShown: Dispatch<SetStateAction<boolean[]>>
+) => {
 	const [appState, setAppState] = useState<AppState>(AppState.active);
 	const [isConsoleShown, setIsConsoleShown] = useState(false);
-	const errorsShift = useMemo(
-		() => new Array(errorsText.length).fill(0).map(() => getRandomSign()),
-		[]
-	);
-	const [isErrorShown, setIsErrorShown] = useState<boolean[]>(
-		new Array(errorsText.length).fill(false)
-	);
 	const handleWelcomeClick = useCallback(() => {
 		if (appState === AppState.active) {
 			setIsConsoleShown(true);
@@ -25,9 +19,6 @@ export const useAppState = () => {
 	}, [appState]);
 	return {
 		appState,
-		errorsShift,
-		isErrorShown,
-		setIsErrorShown,
 		isConsoleShown,
 		setIsConsoleShown,
 		handleWelcomeClick,

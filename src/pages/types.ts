@@ -14,5 +14,4 @@ export type UpdatePositionAction = {
 
 export type CustomDropProps = {
 	ref: RefObject<HTMLDivElement>;
-	setPosition: (value: UpdatePositionAction) => void;
 };
