@@ -12,7 +12,8 @@ import styles from './style.module.scss';
 const Label = ({ image, description, handleOpen, position }: LabelProps) => {
 	const labelRef = useRef<HTMLButtonElement>(null);
 	const [isContextShown, setIsContextShown] = useState(false);
-	const [contextMenuPosition, setContextMenuPosition] = useState<XYCoord>(emptyPosition);
+	const [contextMenuPosition, setContextMenuPosition] =
+		useState<XYCoord>(emptyPosition);
 	const { isFocus, setIsFocus } = useRemoveFocus(labelRef);
 	const { isDrag } = useCustomDrag({ type: 'label', ref: labelRef });
 	useEffect(() => {

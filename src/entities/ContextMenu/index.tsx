@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { ContextMenuProps } from '@entities/ContextMenu/types';
 import { downloadFile } from '@entities/ContextMenu/utils';
+import ContextMenuItem from '@entities/ContextMenuItem';
 import styles from './style.module.scss';
 
 const ContextMenu = ({
@@ -18,27 +19,13 @@ const ContextMenu = ({
 			className={styles.menu}
 			style={{ insetInlineStart: position.x, insetBlockStart: position.y }}
 		>
-			<li className={styles.menuItem}>
-				<button className={styles.menuButton} onClick={handleOpen}>
-					Открыть
-				</button>
-			</li>
-			<li className={styles.menuItem}>
-				<button
-					className={styles.menuButton}
-					onClick={() => downloadFile('docx')}
-				>
-					Скачать в docx
-				</button>
-			</li>
-			<li className={styles.menuItem}>
-				<button
-					className={styles.menuButton}
-					onClick={() => downloadFile('pdf')}
-				>
-					Скачать в pdf
-				</button>
-			</li>
+			<ContextMenuItem onClick={handleOpen}>Открыть</ContextMenuItem>
+			<ContextMenuItem onClick={() => downloadFile('docx')}>
+				Скачать в docx
+			</ContextMenuItem>
+			<ContextMenuItem onClick={() => downloadFile('pdf')}>
+				Скачать в pdf
+			</ContextMenuItem>
 		</ul>
 	);
 };
