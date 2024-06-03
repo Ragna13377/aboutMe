@@ -1,34 +1,25 @@
 import { clsx } from 'clsx';
 import { XYCoord } from 'react-dnd';
 import { MouseEvent, useEffect, useRef, useState } from 'react';
-import { menuWidth } from '@entities/ContextMenu/constants';
+import { menuWidth } from '@features/ContextMenu/constants';
 import { emptyPosition } from '@shared/constants';
 import { LabelProps } from '@widgets/Label/types';
 import { useCustomDrag } from '@shared/hooks/useCustomDrag';
 import { useRemoveFocus } from '@widgets/Label/hooks';
-import ContextMenu from '@entities/ContextMenu';
+import ContextMenu from '@features/ContextMenu';
 import styles from './style.module.scss';
+import { useContextMenu } from '@features/ContextMenu/hooks';
 
 const Label = ({ image, description, handleOpen, position }: LabelProps) => {
 	const labelRef = useRef<HTMLButtonElement>(null);
-	const [isContextShown, setIsContextShown] = useState(false);
-	const [contextMenuPosition, setContextMenuPosition] =
-		useState<XYCoord>(emptyPosition);
 	const { isFocus, setIsFocus } = useRemoveFocus(labelRef);
 	const { isDrag } = useCustomDrag({ type: 'label', ref: labelRef });
-	useEffect(() => {
-		if (isDrag) setIsContextShown(false);
-	}, [isDrag]);
-	const handleContextClick = (e: MouseEvent) => {
-		e.preventDefault();
-		const clientX = e.clientX;
-		const clientY = e.clientY;
-		const screenWidth = window.innerWidth;
-		if (clientX > screenWidth - menuWidth)
-			setContextMenuPosition({ x: screenWidth - menuWidth, y: clientY });
-		else setContextMenuPosition({ x: clientX, y: clientY });
-		setIsContextShown(true);
-	};
+	const {
+		handleContextClick,
+		isContextShown,
+		setIsContextShown,
+		contextMenuPosition
+	} = useContextMenu(isDrag);
 	return (
 		<>
 			<button

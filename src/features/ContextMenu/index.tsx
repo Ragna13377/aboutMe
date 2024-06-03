@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { ContextMenuProps } from '@entities/ContextMenu/types';
-import { downloadFile } from '@entities/ContextMenu/utils';
+import { resumeFileName } from '@shared/constants';
+import { ContextMenuProps } from '@features/ContextMenu/types';
+import { downloadFile } from '@shared/utils';
 import ContextMenuItem from '@entities/ContextMenuItem';
 import styles from './style.module.scss';
 
@@ -20,10 +21,10 @@ const ContextMenu = ({
 			style={{ insetInlineStart: position.x, insetBlockStart: position.y }}
 		>
 			<ContextMenuItem onClick={handleOpen}>Открыть</ContextMenuItem>
-			<ContextMenuItem onClick={() => downloadFile('docx')}>
+			<ContextMenuItem onClick={() => downloadFile(resumeFileName, 'docx')}>
 				Скачать в docx
 			</ContextMenuItem>
-			<ContextMenuItem onClick={() => downloadFile('pdf')}>
+			<ContextMenuItem onClick={() => downloadFile(resumeFileName, 'pdf')}>
 				Скачать в pdf
 			</ContextMenuItem>
 		</ul>

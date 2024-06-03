@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { getRandomSign } from '@shared/utils';
 import { aboutMe, hobby } from '@shared/constants';
 import { errorsText, socials, stack } from '@pages/constants';
 import { experience } from '@widgets/ConsoleWindow/constants';

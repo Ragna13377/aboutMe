@@ -1,3 +1,5 @@
+import { availableFileType } from '@shared/types';
+
 export const setFirstLetterUpperCase = (text: string) =>
 	text.charAt(0).toUpperCase() + text.slice(1);
 export function getEnumKeyByValue<T extends Record<string, number | string>>(
@@ -8,4 +10,18 @@ export function getEnumKeyByValue<T extends Record<string, number | string>>(
 }
 export const getRandomSign = () => {
 	return Math.random() < 0.5 ? -1 : 1;
+};
+
+export const downloadFile = (fileName: string, type: availableFileType) => {
+	const link = document.createElement('a');
+	const name = `${fileName}.${type}`;
+	link.href = `./files/${name}`;
+	link.type =
+		type === 'docx'
+			? 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+			: 'application/pdf';
+	link.download = name;
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
 };

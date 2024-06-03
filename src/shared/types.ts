@@ -26,6 +26,8 @@ export type IntRange<F extends number, T extends number> = Exclude<
 	Enumerate<F>
 >;
 
+export type availableFileType = 'docx' | 'pdf';
+
 export enum AppState {
 	'active',
 	'error',
