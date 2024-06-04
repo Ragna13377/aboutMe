@@ -4,7 +4,7 @@ import Mobile from '@pages/Mobile';
 
 export const router = createBrowserRouter([
 	{
-		path: '/',
+		path: '*',
 		element: <Home />,
 	},
 	{
