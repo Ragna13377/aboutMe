@@ -1,58 +1,51 @@
 import { Reducer, useReducer } from 'react';
 import { UpdatePositionAction, UpdatePositionState } from '@pages/types';
 import { emptyPosition } from '@shared/constants';
+import { errorsText } from '@pages/constants';
+import { XYCoord } from 'react-dnd';
 
 export const updatePositionReducer: Reducer<
 	UpdatePositionState,
 	UpdatePositionAction
 > = (state, action) => {
 	const { x, y } = action.payload;
-	switch (action.type) {
-		case 'console':
-			const newConsoleX = state.console.currentPosition.x + x;
-			const newConsoleY = state.console.currentPosition.y + y;
-			return {
-				...state,
-				console: {
-					...state.console,
-					currentPosition: {
-						...state.console.currentPosition,
-						x: newConsoleX,
-						y: newConsoleY,
-					},
-					x: newConsoleX,
-					y: newConsoleY,
+	const newX = state[action.type].currentPosition.x + x;
+	const newY = state[action.type].currentPosition.y + y;
+	if (action.type in state) {
+		return {
+			...state,
+			[action.type]: {
+				...state[action.type],
+				currentPosition: {
+					...state[action.type].currentPosition,
+					x: newX,
+					y: newY,
 				},
-			};
-		case 'label':
-			const newLabelX = state.label.currentPosition.x + x;
-			const newLabelY = state.label.currentPosition.y + y;
-			return {
-				...state,
-				label: {
-					...state.label,
-					currentPosition: {
-						...state.label.currentPosition,
-						x: newLabelX,
-						y: newLabelY,
-					},
-					x: newLabelX,
-					y: newLabelY,
-				},
-			};
-		default:
-			return state;
+				x: newX,
+				y: newY,
+			},
+		};
 	}
+	else return state
 };
 
 export const useUpdatePosition = () => {
 	const [state, dispatch] = useReducer(
 		updatePositionReducer,
-		initialStateUpdatePosition
+		setInitialPosition()
 	);
 	return { state, dispatch };
 };
-export const initialStateUpdatePosition: UpdatePositionState = {
-	console: { ...emptyPosition, currentPosition: { ...emptyPosition } },
-	label: { ...emptyPosition, currentPosition: { ...emptyPosition } },
+const setInitialPosition = () => {
+	const initialState: Record<string, XYCoord & { currentPosition: XYCoord }> = {
+		console: { ...emptyPosition, currentPosition: { ...emptyPosition } },
+		label: { ...emptyPosition, currentPosition: { ...emptyPosition } },
+	};
+	errorsText.forEach((_, index) => {
+		initialState[`error${index}`] = {
+			...emptyPosition,
+			currentPosition: { ...emptyPosition },
+		};
+	});
+	return initialState;
 };

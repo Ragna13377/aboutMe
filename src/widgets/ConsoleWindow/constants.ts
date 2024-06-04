@@ -1,12 +1,12 @@
 import { ConsoleTextBlock } from '@widgets/ConsoleWindow/types';
-import { aboutMe, hobby } from '@shared/constants';
+import { aboutMe, education, hobby } from '@shared/constants';
 
 export const experience: ConsoleTextBlock[] = [
 	{
 		date: '2023-2024',
 		title: 'Think Studio',
 		description:
-			'Реализован веб-сервис поиска работы с помощью NodeJS, MondoDB, React и Bootstrap. Интегрировал аутентификацию пользователей с приложениями Github Oauth2.',
+			'Реализован веб-сервис поиска работы с помощью MondoDB, React и Bootstrap. Интегрировал аутентификацию пользователей с приложениями Github Oauth2.',
 	},
 	{
 		date: '2022-2023',
@@ -24,6 +24,10 @@ export const experience: ConsoleTextBlock[] = [
 		title: 'Навыки',
 		description:
 			'React, Redux, TypeScript, JavaScript, Jest, Cypress, Storybook, Webpack, Docker, Kubernetes, Git, Styled-Components',
+	},
+	{
+		title: 'Образование',
+		description: education,
 	},
 	{
 		title: 'О себе',

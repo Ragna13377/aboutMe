@@ -61,8 +61,9 @@ $bg-color: #171717;
 
 .stackPosition {
 	position: absolute;
-	inset-block-start: 8%;
+	inset-block-start: 30%;
 	inset-inline-start: 8%;
+	width: 250px;
 	z-index: 10;
 	opacity: 0;
 	animation: fade-in 1s ease 0s forwards;
@@ -70,9 +71,18 @@ $bg-color: #171717;
 
 .aboutPosition {
 	position: absolute;
-	inset-block-end: 15%;
-	inset-inline-start: 15%;
-	z-index: 15;
+	inset-block-start: calc(30% - 200px);
+	inset-inline-start: calc(8% + 150px);
+	z-index: 11;
 	opacity: 0;
 	animation: fade-in 1s ease 0.5s forwards;
+}
+.educationPosition {
+	position: absolute;
+	width: 400px;
+	inset-block-start: calc(30% + 220px);
+	inset-inline-start: calc(8% + 210px);
+	z-index: 12;
+	opacity: 0;
+	animation: fade-in 1s ease 1s forwards;
 }

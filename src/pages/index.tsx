@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { aboutMe, hobby } from '@shared/constants';
+import { aboutMe, education, hobby } from '@shared/constants';
 import { errorsText, socials, stack } from '@pages/constants';
 import { experience } from '@widgets/ConsoleWindow/constants';
 import { AppState } from '@shared/types';
@@ -14,6 +14,12 @@ import WelcomeContent from '@widgets/WelcomeContent';
 import docx from './images/docx.svg';
 import styles from './style.module.scss';
 import { useErrorBox } from '@widgets/ErrorBox/hooks';
+import {
+	errorDelay,
+	errorHorizontalOffset,
+	errorVerticalOffset,
+	errorVerticalShift,
+} from '@widgets/ErrorBox/constants';
 
 const Home = () => {
 	const { errorsShift, isErrorShown, setIsErrorShown } = useErrorBox();
@@ -52,6 +58,12 @@ const Home = () => {
 								<p>{hobby}</p>
 							</>
 						</TextContainer>
+						<TextContainer
+							title='Образование'
+							externalStyles={styles.educationPosition}
+						>
+							<p>{education}</p>
+						</TextContainer>
 					</>
 				)}
 				<Label
@@ -74,10 +86,13 @@ const Home = () => {
 							isErrorShown[index] && (
 								<ErrorBox
 									key={index}
+									errorIndex={index}
 									text={error}
 									style={{
-										animationDelay: `${index * 0.2}s`,
-										translate: `${-40 - 10 * errorsShift[index] * index}% ${-150 + 50 * index}%`,
+										animationDelay: `${index * errorDelay}s`,
+										insetInlineStart: `calc(50% + ${errorVerticalShift * errorsShift[index] + errorVerticalOffset * index}%)`,
+										insetBlockStart: `calc(25% + ${errorHorizontalOffset * index}%)`,
+										transform: `translate(${position[`error${index}`].x}px, ${position[`error${index}`].y}px)`,
 									}}
 									onClose={() =>
 										setIsErrorShown((prev) => {

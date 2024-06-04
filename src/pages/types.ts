@@ -1,14 +1,13 @@
 import { RefObject } from 'react';
-import { dropTypes } from '@shared/types';
 import { XYCoord } from 'react-dnd';
 
 export type UpdatePositionState = Record<
-	dropTypes,
+	string,
 	XYCoord & { currentPosition: XYCoord }
 >;
 
 export type UpdatePositionAction = {
-	type: dropTypes;
+	type: string;
 	payload: XYCoord;
 };
 

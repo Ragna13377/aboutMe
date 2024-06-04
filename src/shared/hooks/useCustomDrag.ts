@@ -3,7 +3,7 @@ import { CustomDragProps } from '@shared/types';
 
 export const useCustomDrag = ({ type, ref }: CustomDragProps) => {
 	const [{ isDrag }, drag, preview] = useDrag({
-		type,
+		type: 'desktop',
 		item: { type },
 		collect: (monitor) => ({
 			isDrag: monitor.isDragging(),

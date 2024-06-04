@@ -1,7 +1,6 @@
 import { technologyImages } from '@entities/Technology/constants';
 import { RefObject } from 'react';
 
-export type dropTypes = 'console' | 'label';
 export type TechnologyType = keyof typeof technologyImages;
 
 export type TTechnology = {
@@ -10,7 +9,7 @@ export type TTechnology = {
 };
 
 export type CustomDragProps = {
-	type: dropTypes;
+	type: string;
 	ref: RefObject<HTMLElement>;
 };
 
