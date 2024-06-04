@@ -25,3 +25,16 @@ export const downloadFile = (fileName: string, type: availableFileType) => {
 	link.click();
 	document.body.removeChild(link);
 };
+
+export const throttle = (fn: () => void, delay: number): () => void => {
+	let timeout: ReturnType<typeof setTimeout>| undefined = undefined;
+	return () => {
+		if(!timeout) {
+			timeout = setTimeout(() => {
+				fn();
+				clearTimeout(timeout);
+				timeout = undefined;
+			}, delay)
+		}
+	}
+}

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useCallback, useState } from 'react';
 import { AppState } from '@shared/types';
-import { errorsText } from '@pages/constants';
+import { errorsText } from '@pages/Home/constants';
 
 export const useAppState = (
 	setIsErrorShown: Dispatch<SetStateAction<boolean[]>>

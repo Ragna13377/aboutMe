@@ -32,3 +32,9 @@ export enum AppState {
 	'error',
 	'disabled',
 }
+
+export type TTextBlock = {
+	title: string;
+	description: string;
+	date?: string;
+};

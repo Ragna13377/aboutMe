@@ -1,10 +1,8 @@
-import {
-	ConsoleTextBlock,
-	TSplitRangeLine,
-} from '@widgets/ConsoleWindow/types';
+import { TTextBlock } from '@shared/types';
+import { TSplitRangeLine } from '@widgets/ConsoleWindow/types';
 
 export const formatText = (
-	data: ConsoleTextBlock[],
+	data: TTextBlock[],
 	addSeparator = true,
 	maxLineLength?: TSplitRangeLine
 ) =>

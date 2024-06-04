@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { errorsText } from '@pages/constants';
+import { errorsText } from '@pages/Home/constants';
 import { getRandomSign } from '@shared/utils';
 
 export const useErrorBox = () => {

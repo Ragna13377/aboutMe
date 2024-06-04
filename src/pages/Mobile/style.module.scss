@@ -1,0 +1,17 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	background-image: url('@images/bg.webp');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding: 20px;
+	width: 100dvw;
+	height: 100dvh;
+}
+.textBlock {
+	width: clamp(20rem, 14.7727rem + 26.1364vw, 34.375rem);
+	font-size: 16px;
+}

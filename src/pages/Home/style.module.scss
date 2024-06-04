@@ -71,8 +71,8 @@ $bg-color: #171717;
 
 .aboutPosition {
 	position: absolute;
-	inset-block-start: calc(30% - 200px);
-	inset-inline-start: calc(8% + 150px);
+	inset-block-start: calc(30% + 30px);
+	inset-inline-start: calc(8% + 221px);
 	z-index: 11;
 	opacity: 0;
 	animation: fade-in 1s ease 0.5s forwards;
@@ -80,8 +80,8 @@ $bg-color: #171717;
 .educationPosition {
 	position: absolute;
 	width: 400px;
-	inset-block-start: calc(30% + 220px);
-	inset-inline-start: calc(8% + 210px);
+	inset-block-start: calc(30% + 330px);
+	inset-inline-start: calc(8% + 220px);
 	z-index: 12;
 	opacity: 0;
 	animation: fade-in 1s ease 1s forwards;

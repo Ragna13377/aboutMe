@@ -1,25 +1,26 @@
 import { useRef } from 'react';
 import { aboutMe, education, hobby } from '@shared/constants';
-import { errorsText, socials, stack } from '@pages/constants';
-import { experience } from '@widgets/ConsoleWindow/constants';
-import { AppState } from '@shared/types';
-import { useAppState } from '@pages/hooks/useAppState';
-import { useCustomDrop } from '@pages/hooks/useCustomDrop';
-import TextContainer from '@entities/TextContainer';
-import ConsoleWindow from '@widgets/ConsoleWindow';
-import ErrorBox from '@widgets/ErrorBox';
-import Label from '@widgets/Label';
-import TechnologyList from '@widgets/TechnologyList';
-import WelcomeContent from '@widgets/WelcomeContent';
-import docx from './images/docx.svg';
-import styles from './style.module.scss';
-import { useErrorBox } from '@widgets/ErrorBox/hooks';
+import { errorsText, socials, stack } from '@pages/Home/constants';
+import { consoleTextBlock } from '@widgets/ConsoleWindow/constants';
 import {
 	errorDelay,
 	errorHorizontalOffset,
 	errorVerticalOffset,
 	errorVerticalShift,
 } from '@widgets/ErrorBox/constants';
+import { AppState } from '@shared/types';
+import { useAppState } from '@pages/Home/hooks/useAppState';
+import { useCustomDrop } from '@pages/Home/hooks/useCustomDrop';
+import TextContainer from '@entities/TextContainer';
+import ConsoleWindow from '@widgets/ConsoleWindow';
+import ErrorBox from '@widgets/ErrorBox';
+import Label from '@widgets/Label';
+import TechnologyList from '@widgets/TechnologyList';
+import WelcomeContent from '@widgets/WelcomeContent';
+import { useErrorBox } from '@widgets/ErrorBox/hooks';
+import { useIsMobile } from '@shared/hooks/useIsMobile';
+import docx from './images/docx.svg';
+import styles from './style.module.scss';
 
 const Home = () => {
 	const { errorsShift, isErrorShown, setIsErrorShown } = useErrorBox();
@@ -27,6 +28,7 @@ const Home = () => {
 		useAppState(setIsErrorShown);
 	const areaRef = useRef<HTMLDivElement>(null);
 	const { position } = useCustomDrop({ ref: areaRef });
+	useIsMobile();
 	return (
 		<main className={styles.main}>
 			<div className={styles.layout} />
@@ -74,7 +76,7 @@ const Home = () => {
 				/>
 				{isConsoleShown && (
 					<ConsoleWindow
-						textBlock={experience}
+						textBlock={consoleTextBlock}
 						processName='Resume'
 						position={position.console}
 						onClose={() => setIsConsoleShown(false)}

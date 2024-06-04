@@ -1,6 +1,6 @@
 import { useDrop } from 'react-dnd';
-import { CustomDropProps } from '@pages/types';
-import { useUpdatePosition } from '@pages/hooks/useUpdatePosition';
+import { CustomDropProps } from '@pages/Home/types';
+import { useUpdatePosition } from '@pages/Home/hooks/useUpdatePosition';
 
 export const useCustomDrop = ({ ref }: CustomDropProps) => {
 	const { state: position, dispatch: setPosition } = useUpdatePosition();

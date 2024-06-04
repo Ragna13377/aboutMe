@@ -1,7 +1,7 @@
 import { Reducer, useReducer } from 'react';
-import { UpdatePositionAction, UpdatePositionState } from '@pages/types';
+import { UpdatePositionAction, UpdatePositionState } from '@pages/Home/types';
 import { emptyPosition } from '@shared/constants';
-import { errorsText } from '@pages/constants';
+import { errorsText } from '@pages/Home/constants';
 import { XYCoord } from 'react-dnd';
 
 export const updatePositionReducer: Reducer<
