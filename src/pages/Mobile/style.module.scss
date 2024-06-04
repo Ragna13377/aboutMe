@@ -1,4 +1,5 @@
 .container {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -10,8 +11,34 @@
 	padding: 20px;
 	width: 100dvw;
 	height: 100dvh;
+	font-family: OverpassMono, monospace;
+	overflow: scroll;
+	@media(max-width: 600px) {
+		padding: 0;
+	}
 }
 .textBlock {
 	width: clamp(20rem, 14.7727rem + 26.1364vw, 34.375rem);
 	font-size: 16px;
+	h4 {
+		padding: 0;
+		margin: 0;
+		margin-block: 10px;
+		&:first-child {
+			margin-block-start: 0;
+		}
+	}
+}
+.socials {
+	gap: 30px;
+	position: fixed;
+	inset-block-end: 5%;
+	inset-inline-end: 5%;
+	@media (max-width: 600px) {
+		position: initial;
+		flex-direction: row;
+		margin: 15px 0;
+		width: 100%;
+		padding: 10px 0;
+	}
 }

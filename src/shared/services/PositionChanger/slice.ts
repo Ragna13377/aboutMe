@@ -4,7 +4,7 @@ const initialState = false;
 const positionChangerSlice = createSlice({
 	name: 'positionChanger',
 	initialState,
-	reducers: {}
-})
+	reducers: {},
+});
 
-export default positionChangerSlice.reducer
+export default positionChangerSlice.reducer;

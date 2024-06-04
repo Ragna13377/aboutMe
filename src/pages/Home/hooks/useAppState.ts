@@ -16,7 +16,7 @@ export const useAppState = (
 		if (appState !== AppState.disabled) {
 			setAppState((prev) => prev + 1);
 		}
-	}, [appState]);
+	}, [appState, setIsErrorShown]);
 	return {
 		appState,
 		isConsoleShown,
