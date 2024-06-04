@@ -1,4 +1,4 @@
-import { education, experience, hobby, skills } from '@shared/constants';
+import { aboutMe, education, experience, hobby, skills } from '@shared/constants';
 
 export const consoleTextBlock = experience.concat(
 	{
@@ -11,7 +11,7 @@ export const consoleTextBlock = experience.concat(
 	},
 	{
 		title: 'О себе',
-		description: 'aboutMe',
+		description: aboutMe,
 	},
 	{
 		title: 'Хобби',

@@ -8,9 +8,9 @@ export const useIsMobile = () => {
 		const handleResize = () => {
 			console.log(1);
 			if (window.innerWidth <= 1200) navigate('/mobile');
-			else navigate('/');
+			else navigate('/AboutMe');
 		};
-		const optimizedResize = throttle(handleResize, 500);
+		const optimizedResize = throttle(handleResize, 100);
 		handleResize();
 		window.addEventListener('resize', optimizedResize);
 		return () => window.removeEventListener('resize', optimizedResize);
