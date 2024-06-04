@@ -8,9 +8,7 @@ export function getEnumKeyByValue<T extends Record<string, number | string>>(
 ): keyof T {
 	return Object.keys(enumObj).find((key) => enumObj[key] === value) as keyof T;
 }
-export const getRandomSign = () => {
-	return Math.random() < 0.5 ? -1 : 1;
-};
+export const getRandomSign = () => (Math.random() < 0.5 ? -1 : 1);
 
 export const downloadFile = (fileName: string, type: availableFileType) => {
 	const link = document.createElement('a');
@@ -26,15 +24,15 @@ export const downloadFile = (fileName: string, type: availableFileType) => {
 	document.body.removeChild(link);
 };
 
-export const throttle = (fn: () => void, delay: number): () => void => {
-	let timeout: ReturnType<typeof setTimeout>| undefined = undefined;
+export const throttle = (fn: () => void, delay: number): (() => void) => {
+	let timeout: ReturnType<typeof setTimeout> | undefined = undefined;
 	return () => {
-		if(!timeout) {
+		if (!timeout) {
 			timeout = setTimeout(() => {
 				fn();
 				clearTimeout(timeout);
 				timeout = undefined;
-			}, delay)
+			}, delay);
 		}
-	}
-}
+	};
+};

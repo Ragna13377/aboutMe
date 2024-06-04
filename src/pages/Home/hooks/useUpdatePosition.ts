@@ -25,8 +25,7 @@ export const updatePositionReducer: Reducer<
 				y: newY,
 			},
 		};
-	}
-	else return state
+	} else return state;
 };
 
 export const useUpdatePosition = () => {

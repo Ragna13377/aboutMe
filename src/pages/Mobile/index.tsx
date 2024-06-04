@@ -1,7 +1,7 @@
 import { useIsMobile } from '@shared/hooks/useIsMobile';
 import styles from './style.module.scss';
 import TechnologyList from '@widgets/TechnologyList';
-import { stack } from '@pages/Home/constants';
+import { socials, stack } from '@pages/Home/constants';
 import TextContainer from '@entities/TextContainer';
 import { aboutMe, education, experience, hobby } from '@shared/constants';
 import { Fragment } from 'react';
@@ -35,6 +35,12 @@ const Mobile = () => {
 					<p>{hobby}</p>
 				</>
 			</TextContainer>
+			<TechnologyList
+				externalStyles={styles.socials}
+				orientation='vertical'
+				listType='socials'
+				technologies={socials}
+			/>
 		</div>
 	);
 };

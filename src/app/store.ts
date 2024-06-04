@@ -1,16 +1,16 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import positionChangerReducer from '@shared/services/PositionChanger/slice';
 import {
-  TypedUseSelectorHook,
-  useDispatch as dispatchHook,
-  useSelector as selectorHook,
-} from "react-redux";
+	TypedUseSelectorHook,
+	useDispatch as dispatchHook,
+	useSelector as selectorHook,
+} from 'react-redux';
 
 const rootReducer = combineReducers({
-  positionChangerReducer
+	positionChangerReducer,
 });
 export const store = configureStore({
-  reducer: rootReducer,
+	reducer: rootReducer,
 });
 
 type AppState = typeof store.dispatch;
