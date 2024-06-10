@@ -1,5 +1,5 @@
 import { MouseEvent, useEffect, useState } from 'react';
-import { menuWidth } from '@features/ContextMenu/constants';
+import { menuWidth } from '@widgets/ContextMenu/constants';
 import { XYCoord } from 'react-dnd';
 import { emptyPosition } from '@shared/constants';
 

@@ -1,10 +1,10 @@
-import { useIsMobile } from '@shared/hooks/useIsMobile';
-import styles from './style.module.scss';
-import TechnologyList from '@widgets/TechnologyList';
-import { socials, stack } from '@pages/Home/constants';
-import TextContainer from '@entities/TextContainer';
-import { aboutMe, education, experience, hobby } from '@shared/constants';
 import { Fragment } from 'react';
+import { aboutMe, education, experience, hobby } from '@shared/constants';
+import { socials, stack } from '@pages/Home/constants';
+import { useIsMobile } from '@shared/hooks/useIsMobile';
+import TechnologyList from '@widgets/TechnologyList';
+import TextContainer from '@entities/TextContainer';
+import styles from './style.module.scss';
 
 const Mobile = () => {
 	useIsMobile();

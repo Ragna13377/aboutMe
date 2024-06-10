@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { resumeFileName } from '@shared/constants';
-import { ContextMenuProps } from '@features/ContextMenu/types';
+import { ContextMenuProps } from '@widgets/ContextMenu/types';
 import { downloadFile } from '@shared/utils';
 import ContextMenuItem from '@entities/ContextMenuItem';
 import styles from './style.module.scss';

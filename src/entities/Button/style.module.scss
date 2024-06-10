@@ -17,7 +17,7 @@ $button-height: 40px;
 	overflow: hidden;
 	font-weight: 900;
 	border-radius: 5px;
-	box-shadow: inset 3px -3px 0 2px rgb(41 41 41 / 60%), -3px 3px 16px 0 rgb(41 41 41 / 44%);
+	box-shadow: inset 3px -3px 0 2px var(--bg-main), -3px 3px 16px 0 rgb(41 41 41 / 44%);
 	cursor: pointer;
 
 	&::after {
@@ -30,7 +30,7 @@ $button-height: 40px;
 }
 
 .active {
-	color: grey;
+	color: var(--accent-color);
 	background: linear-gradient(180deg, #706884, #4F546B, #2E3B4D);
 	&:hover, &:active {
 		color: var(--color-glitch-blue);
@@ -46,16 +46,15 @@ $button-height: 40px;
 	color: var(--color-glitch-red);
 	text-shadow: 1px 1px 1px var(--color-glitch-red);
 	background: linear-gradient(to bottom, #524b5e, #3a3d4f, #252f3f);
-	clip-path: polygon(0 0, 50% 0, 55% 10%, 48% 20%, 55% 30%, 45% 40%, 55% 50%, 45% 60%, 52% 70%, 40% 80%, 48% 90%, 45% 100%, 80% 100%, 75% 90%, 80% 80%, 70% 70%, 77% 60%, 65% 50%, 70% 40%, 60% 30%, 65% 20%, 60% 10%, 100% 0, 100% 100%, 0 100%, 0 0);
+	//clip-path: polygon(0 0, 50% 0, 55% 10%, 48% 20%, 55% 30%, 45% 40%, 55% 50%, 45% 60%, 52% 70%, 40% 80%, 48% 90%, 45% 100%, 80% 100%, 75% 90%, 80% 80%, 70% 70%, 77% 60%, 65% 50%, 70% 40%, 60% 30%, 65% 20%, 60% 10%, 100% 0, 100% 100%, 0 100%, 0 0);
 	animation: error 8s infinite;
 }
 
 .disabled {
-	color: grey;
+	color: darkgrey;
 	background: linear-gradient(to bottom, #524b5e, #3a3d4f, #252f3f);
 	cursor: default;
 	filter: grayscale(1);
-	clip-path: polygon(0 0, 50% 0, 55% 10%, 48% 20%, 55% 30%, 45% 40%, 55% 50%, 45% 60%, 52% 70%, 40% 80%, 48% 90%, 45% 100%, 80% 100%, 75% 90%, 80% 80%, 70% 70%, 77% 60%, 65% 50%, 70% 40%, 60% 30%, 65% 20%, 60% 10%, 100% 0, 100% 100%, 0 100%, 0 0);
 }
 
 @keyframes error {
@@ -63,6 +62,6 @@ $button-height: 40px;
 		color: var(--color-glitch-red);
 	}
 	11%, 14%, 51%, 89% {
-		color: #ca0e0e;
+		color: rgb(170 52 36 / 91%);
 	}
 }

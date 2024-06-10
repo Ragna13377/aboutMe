@@ -57,7 +57,7 @@ $box-border: 5px;
 	font-size: 14px;
 
 	&::selection {
-		color: white;
+		color: var(--accent-color);
 		background-color: #3367D1;
 	}
 }

@@ -3,8 +3,7 @@
 	padding: 20px;
 	color: var(--console-text);
 	background-color: var(--console-color);
-	border: 2px solid var(--console-text);
-	outline: 3px solid var(--console-color);
+	box-shadow: 0 0 3px #161a2b;
 	font-family: var(--console-font-family);
 	font-weight: 700;
 }

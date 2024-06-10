@@ -1,12 +1,16 @@
 :root {
-	--accent-color: #b4b4b4;
+	--accent-color: #cccccc;
+	--bg-main: #060b10;
 	--console-font-family: EpilepsySans, monospace;
-	--console-color: #080808;
-	--console-text: #2A9616;
-	--layout-width: 90%;
+	--console-color: #0d1123;
+	--console-color-darken: #070912;
+	--console-text: var(--color-glitch-blue);
+	--layout-width: 94.4%;
 	--layout-height: 90%;
 	--label-offset: 15px;
-	--layout-offset: calc((100% - var(--layout-height)) / 2);
+	--social-offset: 40px;
+	--layout-offset-y: calc((100% - var(--layout-height)) / 2);
+	--layout-offset-x: calc((100% - var(--layout-width)) / 2);
 	--color-glitch-blue: #479fab;
-	--color-glitch-red: #8d2828;
+	--color-glitch-red: #852845;
 };
