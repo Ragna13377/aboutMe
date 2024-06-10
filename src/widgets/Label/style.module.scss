@@ -1,7 +1,5 @@
 .labelContainer {
-	position: absolute;
-	inset-block-start: calc(var(--layout-offset) + var(--label-offset));
-	inset-inline-end: calc(var(--layout-offset) + var(--label-offset));
+
 	z-index: 100;
 	display: flex;
 	flex-direction: column;

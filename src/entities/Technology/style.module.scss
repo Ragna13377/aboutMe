@@ -29,7 +29,7 @@
 .technology {
 	&:hover {
 		.technologyItem {
-			color: white;
+			color: var(--accent-color);
 		}
 
 		img {

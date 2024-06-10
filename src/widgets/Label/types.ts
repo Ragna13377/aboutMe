@@ -5,4 +5,5 @@ export type LabelProps = {
 	description: string;
 	handleOpen: () => void;
 	position: XYCoord;
+	externalStyle?: string;
 };

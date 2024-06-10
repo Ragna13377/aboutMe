@@ -1,16 +1,19 @@
 import { clsx } from 'clsx';
-import { XYCoord } from 'react-dnd';
-import { MouseEvent, useEffect, useRef, useState } from 'react';
-import { menuWidth } from '@features/ContextMenu/constants';
-import { emptyPosition } from '@shared/constants';
+import { useRef } from 'react';
 import { LabelProps } from '@widgets/Label/types';
 import { useCustomDrag } from '@shared/hooks/useCustomDrag';
 import { useRemoveFocus } from '@widgets/Label/hooks';
-import ContextMenu from '@features/ContextMenu';
+import ContextMenu from '@widgets/ContextMenu';
 import styles from './style.module.scss';
-import { useContextMenu } from '@features/ContextMenu/hooks';
+import { useContextMenu } from '@widgets/ContextMenu/hooks';
 
-const Label = ({ image, description, handleOpen, position }: LabelProps) => {
+const Label = ({
+	image,
+	description,
+	handleOpen,
+	position,
+	externalStyle,
+}: LabelProps) => {
 	const labelRef = useRef<HTMLButtonElement>(null);
 	const { isFocus, setIsFocus } = useRemoveFocus(labelRef);
 	const { isDrag } = useCustomDrag({ type: 'label', ref: labelRef });
@@ -18,13 +21,15 @@ const Label = ({ image, description, handleOpen, position }: LabelProps) => {
 		handleContextClick,
 		isContextShown,
 		setIsContextShown,
-		contextMenuPosition
+		contextMenuPosition,
 	} = useContextMenu(isDrag);
 	return (
 		<>
 			<button
 				style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
-				className={clsx(styles.labelContainer, { [styles.focused]: isFocus })}
+				className={clsx(styles.labelContainer, externalStyle, {
+					[styles.focused]: isFocus,
+				})}
 				onClick={() => setIsFocus(true)}
 				onDoubleClick={handleOpen}
 				onContextMenu={handleContextClick}

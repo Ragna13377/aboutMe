@@ -39,7 +39,7 @@ const Home = () => {
 					externalClass={styles.gridMiddle}
 				/>
 				<TechnologyList
-					externalStyles={styles.gridBottom}
+					externalStyles={styles.socialsPosition}
 					orientation='horizontal'
 					listType='socials'
 					technologies={socials}
@@ -73,6 +73,7 @@ const Home = () => {
 					description='Резюме'
 					handleOpen={() => setIsConsoleShown(true)}
 					position={position.label}
+					externalStyle={styles.labelPosition}
 				/>
 				{isConsoleShown && (
 					<ConsoleWindow
