@@ -48,13 +48,14 @@ const ConsoleWindow = ({
 			</div>
 			<div className={styles.content} ref={contentRef}>
 				{textBlock && (
-					<TypeWriter
-						text={formattedText}
-						speed={250}
-						delay={1500}
-						container={contentRef}
-						externalStyle={styles.textBlock}
-					/>
+					<p className={styles.textBlock}>
+						<TypeWriter
+							text={formattedText}
+							speed={250}
+							delay={1500}
+							container={contentRef}
+						/>
+					</p>
 				)}
 			</div>
 		</article>

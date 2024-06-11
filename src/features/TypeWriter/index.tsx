@@ -1,7 +1,7 @@
-import React, { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { TypeWriterProps } from '@features/TypeWriter/types';
 
-const TypeWriter = ({ text, speed, delay, container, externalStyle }: TypeWriterProps) => {
+const TypeWriter = ({ text, speed, delay, container }: TypeWriterProps) => {
 	const [currentText, setCurrentText] = useState('Loading...');
 	const [currentIndex, setCurrentIndex] = useState(-1);
 	useEffect(() => {
@@ -30,7 +30,7 @@ const TypeWriter = ({ text, speed, delay, container, externalStyle }: TypeWriter
 			if (interval) clearInterval(interval);
 		};
 	}, [currentIndex, delay, speed, text]);
-	return <pre className={externalStyle}>{currentText}</pre>;
+	return currentText;
 };
 
 export default memo(TypeWriter);

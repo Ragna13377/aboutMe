@@ -5,5 +5,5 @@ export const webpackPaths: WebpackPaths = {
 	entry: './src/index.tsx',
 	output: './dist',
 	html: 'index.html',
-	port: 8000,
+	port: 8080,
 };
