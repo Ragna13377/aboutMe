@@ -5,27 +5,26 @@ export const formatText = (
 	data: TTextBlock[],
 	addSeparator = true,
 	maxLineLength?: TSplitRangeLine
-) =>
-	data.reduce((acc: string[], { date, title, description }) => {
-		if (!maxLineLength) {
-			acc.push(`\n${date ? date + '\t' : ''}${title}\n${description}`);
-		} else {
-			acc = acc.concat(
-				separateByLength(
-					`${date ? date + '\t' : ''}${title}`,
-					maxLineLength
-				).concat(separateByLength(`${description}`, maxLineLength))
-			);
-		}
-		if (addSeparator) acc.push('='.repeat(60));
-		return acc;
-	}, []);
+) => {
+	return data.flatMap(({ date, title, description }) => {
+		const formattedDateTitle = `${date ? date + '\n' : ''}${title}`;
+		const lines = maxLineLength
+			? [
+				...separateByLength(formattedDateTitle, maxLineLength),
+				...separateByLength(description, maxLineLength),
+			]
+			: [`\n${formattedDateTitle}\n${description}`];
+
+		return addSeparator ? [...lines, '='.repeat(60)] : lines;
+	});
+}
 
 const separateByLength = (text: string, maxLineLength: number): string[] => {
 	if (text.length <= maxLineLength) return [text];
 	const index = text.slice(0, maxLineLength).lastIndexOf(' ');
-	if (index === -1) return [text.slice(0, maxLineLength)];
-	return [text.slice(0, index)].concat(
+	return index === -1
+		? [text.slice(0, maxLineLength)]
+		: [text.slice(0, index)].concat(
 		separateByLength(text.slice(index + 1), maxLineLength)
 	);
 };

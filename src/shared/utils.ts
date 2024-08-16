@@ -15,7 +15,7 @@ export const downloadFile = (fileName: string, type: availableFileType) => {
 	const name = `${fileName}.${type}`;
 	link.href = `./files/${name}`;
 	link.type =
-		type === 'docx'
+		type === 'doc'
 			? 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
 			: 'application/pdf';
 	link.download = name;

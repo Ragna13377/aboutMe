@@ -14,12 +14,9 @@ export const useContextMenu = (isDrag: boolean) => {
 
 	const handleContextClick = (e: MouseEvent) => {
 		e.preventDefault();
-		const clientX = e.clientX;
-		const clientY = e.clientY;
-		const screenWidth = window.innerWidth;
-		if (clientX > screenWidth - menuWidth)
-			setContextMenuPosition({ x: screenWidth - menuWidth, y: clientY });
-		else setContextMenuPosition({ x: clientX, y: clientY });
+		const x = Math.min(e.clientX, window.innerWidth - menuWidth);
+		const y = e.clientY;
+		setContextMenuPosition({ x, y });
 		setIsContextShown(true);
 	};
 	return {

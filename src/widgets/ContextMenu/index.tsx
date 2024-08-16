@@ -21,8 +21,8 @@ const ContextMenu = ({
 			style={{ insetInlineStart: position.x, insetBlockStart: position.y }}
 		>
 			<ContextMenuItem onClick={handleOpen}>Открыть</ContextMenuItem>
-			<ContextMenuItem onClick={() => downloadFile(resumeFileName, 'docx')}>
-				Скачать в docx
+			<ContextMenuItem onClick={() => downloadFile(resumeFileName, 'doc')}>
+				Скачать в doc
 			</ContextMenuItem>
 			<ContextMenuItem onClick={() => downloadFile(resumeFileName, 'pdf')}>
 				Скачать в pdf

@@ -78,7 +78,7 @@ const Home = () => {
 				{isConsoleShown && (
 					<ConsoleWindow
 						textBlock={consoleTextBlock}
-						processName='Resume'
+						processName='Орлов Иван Дмитриевич'
 						position={position.console}
 						onClose={() => setIsConsoleShown(false)}
 					/>

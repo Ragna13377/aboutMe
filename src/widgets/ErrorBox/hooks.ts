@@ -4,11 +4,11 @@ import { getRandomSign } from '@shared/utils';
 
 export const useErrorBox = () => {
 	const errorsShift = useMemo(
-		() => new Array(errorsText.length).fill(0).map(() => getRandomSign()),
+		() => Array.from({ length: errorsText.length }, getRandomSign),
 		[]
 	);
 	const [isErrorShown, setIsErrorShown] = useState<boolean[]>(
-		new Array(errorsText.length).fill(false)
+		() => new Array(errorsText.length).fill(false)
 	);
 	return {
 		errorsShift,

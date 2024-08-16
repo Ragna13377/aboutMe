@@ -6,7 +6,6 @@ export const useIsMobile = () => {
 	const navigate = useNavigate();
 	useEffect(() => {
 		const handleResize = () => {
-			console.log(1);
 			if (window.innerWidth <= 1200) navigate('/mobile');
 			else navigate('/AboutMe');
 		};
