@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { TextContainerProps } from '@entities/TextContainer/types';
 import styles from './styles.module.scss';
 

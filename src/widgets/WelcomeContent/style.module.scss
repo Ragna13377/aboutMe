@@ -5,3 +5,12 @@
 	padding: 40px 30px 20px 40px;
 	border: 3px dashed var(--accent-color);
 }
+$button-width: 150px;
+$button-height: 40px;
+.button {
+	position: relative;
+	inset-block-start: calc(20px + $button-height * 0.5);
+	inset-inline-start: calc(100% - $button-width);
+	min-width: $button-width;
+	min-height: $button-height;
+}

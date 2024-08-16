@@ -1,18 +1,12 @@
-@import '@shared/styles/animations';
-
-$button-width: 150px;
-$button-height: 40px;
+@import '@shared/styles/animations.scss';
 
 .button {
-	position: relative;
-	inset-block-start: calc(20px + $button-height * 0.5);
-	inset-inline-start: calc(100% - $button-width);
 	z-index: 1;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	min-width: $button-width;
-	min-height: $button-height;
+	min-width: 150px;
+	min-height: 40px;
 	padding: 0 15px;
 	overflow: hidden;
 	font-weight: 900;

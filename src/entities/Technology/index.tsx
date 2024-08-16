@@ -1,4 +1,5 @@
 import { clsx } from 'clsx';
+import React from 'react';
 import { TTechnology } from '@shared/types';
 import { technologyImages } from '@entities/Technology/constants';
 import { setFirstLetterUpperCase } from '@shared/utils';

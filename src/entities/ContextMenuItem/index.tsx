@@ -1,3 +1,4 @@
+import React from 'react';
 import { ContextMenuItemProps } from '@entities/ContextMenuItem/types';
 import styles from './style.module.scss';
 

@@ -16,7 +16,8 @@ const WelcomeContent = ({
 		<GlitchText>Hello World!</GlitchText>
 		<Button
 			text={appState === AppState.active ? 'Open' : 'Error'}
-			extraStyle={getEnumKeyByValue(AppState, appState)}
+			appState={getEnumKeyByValue(AppState, appState)}
+			extraStyle={styles.button}
 			onClick={onClick}
 		/>
 	</div>
