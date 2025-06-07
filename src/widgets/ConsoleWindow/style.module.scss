@@ -1,0 +1,179 @@
+@import '@shared/styles/animations';
+
+$button-hover: #393939;
+$button-active: #676767;
+$close-button-hover: #7b0000;
+$close-button-active: #570000;
+$panel-height: 25px;
+
+.container {
+	position: absolute;
+	inset-block-start: calc(var(--layout-offset-y) + var(--label-offset-y) + 80px);
+	inset-inline-end: calc(var(--layout-offset-x) - 2%);
+	z-index: 100;
+	width: 700px;
+	height: 350px;
+	color: var(--console-text);
+	background-color: var(--console-color);
+	font-family: var(--console-font-family);
+	font-weight: 700;
+}
+
+.panel {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: $panel-height;
+	padding: 0 10px;
+	background-color: var(--console-color-darken);
+	user-select: none;
+}
+
+.panelTitle {
+	margin: 0;
+	overflow: hidden;
+	font-size: 15px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: var(--accent-color);
+}
+
+.panelTools {
+	display: flex;
+	gap: 10px;
+	margin-inline-start: 20px;
+}
+
+.button {
+	width: 15px;
+	padding: 0;
+	background-color: rgb(255 255 255 / 0%);
+	border: none;
+	aspect-ratio: 1/1;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover, &:focus-visible {
+		background-color: $button-hover;
+		outline: 3px solid $button-hover;
+	}
+
+	&:active {
+		background-color: $button-active;
+		outline: 3px solid $button-active;
+	}
+}
+
+.hideButton {
+	border-block-end: 2px solid var(--accent-color);
+}
+
+.showButton {
+	border: 2px solid var(--accent-color);
+}
+
+.closeButton {
+	position: relative;
+
+	&::after, &::before {
+		content: '';
+		position: absolute;
+		translate: -55% -60%;
+		inset: 50%;
+		width: 120%;
+		height: 2px;
+		background-color: var(--accent-color);
+	}
+
+	&::after {
+		rotate: 45deg;
+	}
+
+	&::before {
+		rotate: -45deg;
+	}
+
+	&:hover {
+		background-color: $close-button-hover;
+		outline: 2px solid $close-button-hover;
+	}
+
+	&:active {
+		background-color: $close-button-active;
+		outline: 2px solid $close-button-active;
+	}
+}
+
+.content {
+	--scrollbar-color-thumb: var(--accent-color);
+	--scrollbar-color-track: var(--console-color);
+	--scrollbar-width: thin;
+	--scrollbar-width-legacy: 10px;
+	height: calc(100% - $panel-height);
+	padding: 10px 20px 20px;
+	overflow-y: scroll;
+
+	@supports (scrollbar-width: auto) {
+		scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
+		scrollbar-width: var(--scrollbar-width);
+	}
+
+	@supports selector(::-webkit-scrollbar) {
+		&::-webkit-scrollbar-thumb {
+			background-color: var(--scrollbar-color-thumb);
+		}
+
+		&::-webkit-scrollbar-track {
+			background-color: var(--scrollbar-color-track);
+		}
+
+		&::-webkit-scrollbar {
+			max-width: var(--scrollbar-width-legacy);
+			max-height: var(--scrollbar-width-legacy);
+		}
+	}
+}
+
+.textBlock {
+	margin: 0;
+	white-space: break-spaces;
+	user-select: text;
+	font-family: EpilepsySans, monospace;
+
+	&::after {
+		content: '▋';
+		animation: flickering 0.8s infinite;
+	}
+}
+
+.textHeader {
+	display: flex;
+	gap: 50px;
+}
+
+.textDivider {
+	height: 5px;
+	margin: 5px 0;
+	border-block-end: 2px dashed var(--console-text);
+}
+
+.minimized {
+	width: 200px;
+	height: $panel-height + 4px;
+	overflow: hidden;
+
+	.panel {
+		border: none;
+	}
+
+	.content{
+		display: none;
+	}
+}
+
+.nodrag{
+	cursor: auto;
+}
+

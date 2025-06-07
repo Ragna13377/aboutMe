@@ -1,0 +1,74 @@
+@font-face {
+	font-weight: 500;
+	font-family: 'EpilepsySans';
+	font-style: normal;
+	font-display: swap;
+	src:
+			url('../assets/fonts/EpilepsySans.woff2') format('woff2'),
+			url('../assets/fonts/EpilepsySans.woff') format('woff'),
+			url('../assets/fonts/EpilepsySans.ttf') format('truetype');
+}
+@font-face {
+	font-weight: 700;
+	font-family: 'EpilepsySans';
+	font-style: normal;
+	font-display: swap;
+	src:
+			url('../assets/fonts/EpilepsySansBold.woff2') format('woff2'),
+			url('../assets/fonts/EpilepsySansBold.woff') format('woff'),
+			url('../assets/fonts/EpilepsySansBold.ttf') format('truetype');
+}
+@font-face {
+	font-weight: 300;
+	font-family: 'OverpassMono';
+	font-style: normal;
+	font-display: swap;
+	src:
+			url('../assets/fonts/OverpassMono-Light.woff2') format('woff2'),
+			url('../assets/fonts/OverpassMono-Light.woff') format('woff'),
+			url('../assets/fonts/OverpassMono-Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-weight: 400;
+	font-family: 'OverpassMono';
+	font-style: normal;
+	font-display: swap;
+	src:
+			url('../assets/fonts/OverpassMono-Regular.woff2') format('woff2'),
+			url('../assets/fonts/OverpassMono-Regular.woff') format('woff'),
+			url('../assets/fonts/OverpassMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-weight: 500;
+	font-family: 'OverpassMono';
+	font-style: normal;
+	font-display: swap;
+	src:
+			url('../assets/fonts/OverpassMono-Medium.woff2') format('woff2'),
+			url('../assets/fonts/OverpassMono-Medium.woff') format('woff'),
+			url('../assets/fonts/OverpassMono-Medium.ttf') format('truetype');
+}
+
+@font-face {
+	font-weight: 600;
+	font-family: 'OverpassMono';
+	font-style: normal;
+	font-display: swap;
+	src:
+			url('../assets/fonts/OverpassMono-SemiBold.woff2') format('woff2'),
+			url('../assets/fonts/OverpassMono-SemiBold.woff') format('woff'),
+			url('../assets/fonts/OverpassMono-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-weight: 700;
+	font-family: 'OverpassMono';
+	font-style: normal;
+	font-display: swap;
+	src:
+			url('../assets/fonts/OverpassMono-Bold.woff2') format('woff2'),
+			url('../assets/fonts/OverpassMono-Bold.woff') format('woff'),
+			url('../assets/fonts/OverpassMono-Bold.ttf') format('truetype');
+}

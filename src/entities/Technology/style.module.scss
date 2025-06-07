@@ -1,0 +1,40 @@
+.technologyItem {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-end;
+	gap: 10px;
+	font-weight: 700;
+	font-size: 1em;
+	user-select: none;
+
+	img {
+		max-width: 20px;
+		filter: grayscale(1);
+		object-position: center;
+		object-fit: contain;
+		aspect-ratio: 1/1;
+	}
+}
+
+.technologyLink {
+	cursor: pointer;
+	img {
+		max-width: 30px;
+	}
+	&:hover {
+		scale: 1.1;
+	}
+}
+
+.technology {
+	&:hover {
+		.technologyItem {
+			color: var(--accent-color);
+		}
+
+		img {
+			filter: none;
+		}
+	}
+}
+

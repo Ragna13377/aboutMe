@@ -1,0 +1,23 @@
+.container {
+	max-width: 500px;
+	padding: 20px;
+	color: var(--console-text);
+	background-color: var(--console-color);
+	box-shadow: 0 0 3px #161a2b;
+	font-family: var(--console-font-family);
+	font-weight: 700;
+}
+
+.title {
+	margin: 0;
+	font-weight: 900;
+	font-size: 20px;
+	text-align: start;
+	border-block-end: 2px solid var(--console-text);
+}
+
+.content {
+	padding: 15px 15px 0;
+	user-select: text;
+	font-size: 1em;
+}

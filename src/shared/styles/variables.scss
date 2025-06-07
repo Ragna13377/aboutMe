@@ -1,0 +1,16 @@
+:root {
+	--accent-color: #cccccc;
+	--bg-main: #060b10;
+	--console-font-family: EpilepsySans, monospace;
+	--console-color: #0d1123;
+	--console-color-darken: #070912;
+	--console-text: var(--color-glitch-blue);
+	--layout-width: 94.4%;
+	--layout-height: 90%;
+	--label-offset: 15px;
+	--social-offset: 40px;
+	--layout-offset-y: calc((100% - var(--layout-height)) / 2);
+	--layout-offset-x: calc((100% - var(--layout-width)) / 2);
+	--color-glitch-blue: #479fab;
+	--color-glitch-red: #852845;
+};

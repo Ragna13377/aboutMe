@@ -1,0 +1,21 @@
+.technologyList {
+	display: flex;
+}
+
+.stackList {
+	gap: 10px;
+	text-align: start;
+}
+
+.socialsList {
+	gap: 50px;
+}
+
+.horizontalOrientation {
+	flex-direction: row;
+}
+
+.verticalOrientation {
+	flex-direction: column;
+}
+

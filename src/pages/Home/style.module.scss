@@ -1,0 +1,77 @@
+@import '@shared/styles/animations';
+
+.main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100dvw;
+	height: 100dvh;
+	font-family: "OverpassMono", monospace;
+	background-color: var(--bg-main);
+	user-select: none;
+}
+
+.layout {
+	position: absolute;
+	inset-block-start: 50%;
+	inset-inline-start: 50%;
+	z-index: 0;
+	width: var(--layout-width);
+	height: var(--layout-height);
+	background-image: url('@images/bg.webp');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	border-radius: 25px;
+	filter: blur(2px);
+	translate: -50% -50%;
+}
+
+.content {
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+.labelPosition {
+	position: absolute;
+	inset-block-start: calc(var(--layout-offset-y) + var(--label-offset));
+	inset-inline-end: calc(var(--layout-offset-x) + var(--label-offset));
+}
+
+.socialsPosition {
+	position: absolute;
+	inset-block-end: calc(var(--layout-offset-y) + var(--social-offset));
+	inset-inline-end: calc(var(--layout-offset-x) + var(--social-offset));
+}
+
+.stackPosition {
+	position: absolute;
+	inset-block-start: 15%;
+	inset-inline-start: 8%;
+	width: 250px;
+	z-index: 10;
+	opacity: 0;
+	animation: fade-in 1s ease 0s forwards;
+}
+
+.aboutPosition {
+	position: absolute;
+	inset-block-start: calc(30% + 30px);
+	inset-inline-start: calc(8% + 221px);
+	z-index: 11;
+	opacity: 0;
+	animation: fade-in 1s ease 0.5s forwards;
+}
+.educationPosition {
+	position: absolute;
+	width: 400px;
+	inset-block-start: calc(30% + 330px);
+	inset-inline-start: calc(8% + 220px);
+	z-index: 12;
+	opacity: 0;
+	animation: fade-in 1s ease 1s forwards;
+}
